@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Table</title>
+</head>
+<body>
+	<table border="3" cellpadding="5" cellspacing="0"
+	align="center" bgcolor="yellow">
+		<tr>
+			<th width="75">cell 1</th>
+			<th width="75" bgcolor="grey">cell 2</th>
+			<th width="75">cell 3</th>
+		</tr>
+		<tr align="center">
+			<td rowspan="2" bgcolor="red">cell 4</td>
+			<td colspan="2"><a href="http:\\www.amazon.co.uk">cell 5</a></td>
+		</tr>
+		<tr align="center">
+			<td>cell 8</td>
+			<td>cell 9</td>
+		</tr>
+	</table>
+</body>
+</html>
