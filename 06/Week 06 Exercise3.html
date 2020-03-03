@@ -1,0 +1,37 @@
+<!DOCYPE html>
+  <!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+  <html>
+
+  <head>
+    <title> Week 6 Exercise 3 - Guessing Game 1 to 10 </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Web Application Development, GMIT 2020, Week 6 Excercises">
+    <meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
+  </head>
+
+  <body>
+    <button onclick="newGame()">Start New Game</button>
+  </body>
+
+  <script>
+  var num = 0
+    function newGame() {
+      num = Math.ceil(Math.random() * 10);
+      var answer = Number(prompt("Guess the number between 1 and 10  I am thinking about: "));
+      check(answer);
+    }
+
+    function check(i) {
+      //alert(num); //just for checking
+      if (num == i) {
+        alert("Good Guess!");
+      }
+      else {
+        alert("Sorry, wrong number.");
+      }
+    }
+
+  //myFunction();
+  </script>
+
+  </html>

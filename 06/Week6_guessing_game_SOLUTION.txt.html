@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<!-- 	Week 6 Exercise - Guessing Game
+			Module: WEB APPLICATION DEVELOPMENT 
+	-->
+	
+	<head>
+		<title>Guessing Game 1 to 100</title>
+	</head>
+		
+	<body>
+	</body>
+	<script>
+	
+	/* generation of the random variable number guessNumber
+	the method Math.random() generates a number between 0 and 1, excluding 0 and 1
+	the method Math.ceil() rounds the number for the upwards nearest integer 
+	therefore, the number generated will be between 1 (inclusive) and 100 (inclusive)*/
+	var guessNumber = Math.ceil(Math.random() * 100);
+	
+	//Alert created below for testing purposes, this can be removed later - this will display the random number
+	alert(guessNumber);
+	
+	
+	//for loop - this loop will run six times, and creates a counter called "i"
+	//"i" will increment each time the loop runs
+		for (var i = 1; i <= 6; i++){
+		
+			// prompt the user to enter a number
+			var userNumber = Number (prompt("Enter the number to guess"));
+			
+			// compare the number entered with the one generated
+			if (userNumber == guessNumber){
+				// If the number entered was correct, the using "break;" will stop the for loop completly and progress to the next block of code after the for loop and proceed to line 50 below
+				break;
+			} else {// If the number entered was not correct
+					//Check if the number the user entered is higher than the guessed number
+					if (userNumber > guessNumber){
+						//If the number guessed was higher, output message stating it's too high
+						//The code calculation (6-i) will calculate how many turns are left
+						alert("Sorry, too high, try again. You still have " + (6 - i) + " attempts left");
+						} else { //If the number guessed was lower, output guess was too low
+						alert("Sorry, too low, try again. You still have " + (6 - i) + " attempts left");
+						}
+			}
+			
+		}
+		
+		
+		//Final test after the six attempts are finished, or if the user guessed the correct number before the six attemps were up
+		if (userNumber == guessNumber){
+			alert("Well done! You guessed the right number!");
+		} else {
+			alert("Sorry, you didn't guess right this time. The number I was thinking of was " + guessNumber);
+		}
+		
+	</script>
+</html>

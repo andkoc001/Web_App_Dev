@@ -1,0 +1,45 @@
+<!DOCYPE html>
+  <!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+  <html>
+
+  <head>
+    <title> Week 6 Exercise 4 - Guessing Game 1 to 100 </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Web Application Development, GMIT 2020, Week 6 Excercises">
+    <meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
+  </head>
+
+  <body>
+    <button onclick="newGame()">Start New Game</button>
+  </body>
+
+  <script>
+  var num = 0;
+  var answer;
+  var attempts = 3;
+
+  function newGame() {
+    num = Math.ceil(Math.random() * 100);
+    alert(num); //just for checking
+
+    answer = Number(prompt("Guess the number between 1 and 100  I am thinking about: "));
+      for (attempts; attempts > 0; attempts--) {
+        if (answer < num) {
+          alert("That's too little. You have " + attempts + " attempts left.");
+          answer = Number(prompt("Guess the number: "));
+        }
+        else if (answer > num){
+          alert("That's too much. You have " + attempts + " attempts left.");
+          answer = Number(prompt("Guess the number: "));
+        }
+        else {
+          alert("Good guess!");
+          break;
+        }
+      }
+    }
+    
+  //myFunction();
+  </script>
+
+  </html>
