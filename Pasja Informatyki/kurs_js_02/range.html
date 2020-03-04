@@ -1,0 +1,59 @@
+<!DOCYPE html>
+  <!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+  <!-- Adopted from Pasja Informatyki, https://youtu.be/XJKXlxn9e-g -->
+  <html>
+
+  <head>
+    <title> Print out all intigers between two given numbers </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Integers in the range">
+    <meta name="author" content="Andrzej Kocielski">
+
+    <style>
+    </style>
+
+  </head>
+
+  <body>
+    <div>Enter two numbers. The first one should be less than the second.</div>
+    <input id="inputField1" type="text" placeholder="First number" />
+    <input id="inputField2" type="text" placeholder="Second number" />
+    <input type="submit" value="Run" onclick="compute()" />
+    <div id="result"></div>
+  </body>
+
+  <script type="text/javascript">
+
+    function compute() {
+      var num1 = Number(document.getElementById("inputField1").value);
+      var num2 = Number(document.getElementById("inputField2").value);
+      var range = "";
+
+      if (num1 == num2) {
+        document.getElementById("result").innerHTML = "These numbers are equal.";
+      }
+
+      else if (num1 < num2) {
+        //document.getElementById("result").innerHTML = "ok.";
+        for (i=num1; i<=num2; i++)
+          {
+            range = range + i + " ";
+          }
+        document.getElementById("result").innerHTML=range;
+      }
+
+      else {
+        document.getElementById("result").innerHTML = "Incorrect data.";
+      }
+    }
+
+    function com() {
+      var range = "";
+      for (i = 11; i <= 22; i++) {
+        range = range + i + " ";
+      }
+      document.getElementById("result").innerHTML = range;
+    }
+  </script>
+
+  </html>

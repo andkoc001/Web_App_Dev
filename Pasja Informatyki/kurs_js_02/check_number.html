@@ -1,0 +1,50 @@
+<!DOCYPE html>
+  <!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+  <!-- Adopted from Pasja Informatyki, https://youtu.be/XJKXlxn9e-g -->
+<html>
+
+<head>
+    <title> Check the sign of the number </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Check the number">
+    <meta name="author" content="Andrzej Kocielski">
+  
+	<style>
+	</style>
+	
+</head>
+
+<body>
+    <input id="inputField" type="text" placeholder="Enter a number here..." />
+    <input type="submit" value="Check it" onclick="checkNumber()"/>
+  
+    <div id="result"></div>
+</body>
+
+<script type="text/javascript">
+  
+  function checkNumber()
+  {
+    var num = document.getElementById("inputField").value;
+    // document.write(num);   // just for testing the if the line above reads the user input
+    if (num > 0)
+      {
+        document.getElementById("result").innerHTML="Positive!";
+      }
+    else if (num < 0)
+      {
+        document.getElementById("result").innerHTML="Negative";
+      }
+    else if (num == "0") // without quotes whitespace(s) are also trated as zero
+      {
+        document.getElementById("result").innerHTML="Zero!";
+      }
+    else 
+      {
+        document.getElementById("result").innerHTML="It is not a number...";
+      }  
+  }
+  
+</script>
+
+</html>
