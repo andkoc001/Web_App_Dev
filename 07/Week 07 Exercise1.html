@@ -1,0 +1,23 @@
+<!DOCYPE html>
+  <!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+  <html>
+
+  <head>
+    <title> Week 7 Exercise 1 </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Web Application Development, GMIT 2020, Week 7 Excercises - using the DOM">
+    <meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
+  </head>
+
+  <body>
+    <button onclick="manipulate()"> Change text </button>
+    <h1 id="content">This is JavaScript</h1>
+  </body>
+
+  <script>
+    function manipulate() {
+      document.getElementById("content").innerHTML = "This is DOM manipulation"
+    }
+  </script>
+
+  </html>

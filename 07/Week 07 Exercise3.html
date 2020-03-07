@@ -1,0 +1,64 @@
+<!DOCYPE html>
+  <!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+  <html>
+
+  <head>
+    <title> Week 7 Exercise 3 - Calculator </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Web Application Development, GMIT 2020, Week 7 Excercises - using the DOM">
+    <meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
+  </head>
+
+  <body>
+    <h1>Calculator</h1>
+    <div>Number 1
+      <input type="number" id="box1" />
+    </div>
+    </br>
+    <div>Number 2
+      <input type="number" id="box2" />
+    </div>
+    </br>
+    <div>
+      <button onclick="add()" style="width: 70;">Add</button>
+      <!--
+      <button onclick="sub()" style="width: 70;">Substract</button>
+      <button onclick="mul()" style="width: 70;">Multiply</button>
+      -->
+      <button onclick="div()" style="width: 70;">Divide</button>
+    </div>
+    <div>
+      <p id="readings"></p>
+      <h2 id="result"></h2>
+    </div>
+  </body>
+
+  <script>
+    function read() {
+      var num1 = Number(document.getElementById("box1").value);
+      var num2 = Number(document.getElementById("box2").value);
+      document.getElementById("readings").innerHTML = "Number 1: " + num1 + "</br>" + "Number 2: " + num2;
+      return num1, num2;
+    }
+
+    function add() {
+      // read(); //does not work
+      var num1 = Number(document.getElementById("box1").value);
+      var num2 = Number(document.getElementById("box2").value);
+      document.getElementById("result").innerHTML = "ANSWER: " + num1 + " plus " + num2 + " = " + (num1 + num2);
+    }
+
+    function div() {
+      // read(); //does not work
+      var num1 = Number(document.getElementById("box1").value);
+      var num2 = Number(document.getElementById("box2").value);
+      if (num2 != "0") {
+        document.getElementById("result").innerHTML = "ANSWER: " + num1 + " divided by " + num2 + " = " + (num1 / num2);
+      }
+      else {
+        document.getElementById("result").innerHTML = "Zero division error"
+      }
+    }
+  </script>
+
+  </html>
