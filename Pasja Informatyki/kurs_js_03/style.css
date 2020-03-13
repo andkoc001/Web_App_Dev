@@ -4,7 +4,7 @@ Description: Hangman Game - based on Pasja Informatyki tutorial: https://youtu.b
 */
 
 body {
-	background-color: #000000; 
+	background-color: #202020; 
 	font-family: Verdana;
 	color: lightsteelblue;
 }
@@ -42,6 +42,7 @@ body {
 	width: 450px;
 	text-align: center;
 	min-height: 280px;
+	padding-top: 10px;
 }
 
 .letter {
@@ -50,9 +51,16 @@ body {
 	height: 36px;
 	text-align: center;
 	padding: 5px;
+	padding-top: 7px;
 	margin: 5px;
 	border: 3px solid gray;
 	float: left;
 	cursor: pointer;
 	border-radius: 15px;
+}
+
+.letter:hover {
+	color: lightcyan;
+	background-color: #303030;
+	border: 3px solid lightblue;
 }
