@@ -67,6 +67,36 @@ function beginning() {
   showRiddle();
 }
 
+String.prototype.setChar = function (location, char) {
+  if (location > this.length - 1) return this.toString();
+  else return this.substr(0, location) + char + this.substr(location + 1);
+}
+
+
 function check(num) {
-  alert(num);
+
+  var hit = false;
+
+  for (i = 0; i < length; i++) {
+    if (riddle.charAt(i) == letterArray[num]) {
+      riddleHidden = riddleHidden.setChar(i, letterArray[num]);
+      hit = true;
+    }
+  }
+
+  if (hit == true) {
+    var element = "lett" + num;
+    var a = document.getElementById(element).style;
+    a.border = "3px solid lightgreen";
+    a.color = "forestgreen";
+    a.cursor = "default";
+    showRiddle();
+  }
+  else {
+    var element = "lett" + num;
+    var a = document.getElementById(element).style;
+    a.border = "3px solid indianred";
+    a.color = "sienna";
+    a.cursor = "default";
+  }
 }

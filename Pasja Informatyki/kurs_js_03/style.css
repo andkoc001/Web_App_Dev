@@ -5,7 +5,7 @@ Description: Hangman Game - based on Pasja Informatyki tutorial: https://youtu.b
 
 body {
 	background-color: #202020; 
-	font-family: Verdana;
+	font-family: 'Roboto Mono', monospace;
 	color: lightsteelblue;
 }
 
