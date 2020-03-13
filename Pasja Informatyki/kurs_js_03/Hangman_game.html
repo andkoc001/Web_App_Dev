@@ -1,6 +1,7 @@
 <!DOCYPE html>
   <!-- Author: Andrzej Kocielski -->
   <!-- Adopted from Pasja Informatyki, https://youtu.be/9FVtiJHFCSU -->
+  <!-- All resources (images and sounds) taken from https://miroslawzelent.pl/kurs-javascript/przetwarzanie-lancuchow-gra-wisielec/ -->
   <!-- Created on 13/03/2020 -->
   <html>
 
@@ -13,7 +14,17 @@
   </head>
 
   <body>
-    <h1>Hangman the Game</h1>
+    <div id="container">
+      <h1 id="title">Hangman the Game</h1>
+      <div id="gameBoard">
+      </div>
+      <div id="scaffold">
+        <img src="img/s0.jpg" alt="" />
+      </div>
+      <div id="alphabet"></div>
+      <div style="clear: both;"></div>
+    </div>
+
   </body>
 
   <script src="Hangman_game.js"></script>
