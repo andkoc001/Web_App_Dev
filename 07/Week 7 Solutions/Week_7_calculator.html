@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+	<head>
+        <title>Calculator</title>
+    </head>
+
+    <body>
+                <h1>Calculator</h1>
+
+				<!-- Inputs for numbers -->
+                <h1>Number 1:</h1><input type="text" id="inbox1"><br><br>
+                <h1>Number 2:</h1><input type="text" id="inbox2"><br><br>
+
+				<!-- Buttons for each operator -->
+                <button onclick="addNum()">Add</button>
+                <button onclick="subNum()">Subtract</button>
+                <button onclick="mulNum()">Multiply</button>
+                <button onclick="divNum()">Divide</button><br><br>
+
+				<!-- Output for answers -->
+				<h2>Answer: </h2><h3 id="answer"></h3>
+    </body>
+
+    <script>
+	
+		//Function to add contents of input box 1 and input box 2
+        function addNum(){
+			//Make a var called num1 equals to the value inside the input box with an id of "inbox1" (on line 10 above)
+            var num1 = document.getElementById("inbox1").value;
+            //Make a var called num1 equals to the value inside the input box with an id of "inbox2" (on line 11 above)
+			var num2 = document.getElementById("inbox2").value;
+			//Perform calculation - make sure to convert the 2 variables, num1 and num2 to numbers first
+			//otherwise, the result willl concatenate
+            var total = Number(num1) + Number(num2);
+			//Output the result to the "answer" H3 heading on line 20 above
+            document.getElementById("answer").innerHTML = num1 + " plus " + num2 + " = " + total;
+        }
+
+		//Function to subtract contents of input box 1 and input box 2. Almost identical as first function but subtracts instead
+        function subNum(){
+            var num1 = document.getElementById("inbox1").value;
+            var num2 = document.getElementById("inbox2").value;
+            var total = Number(num1) - Number(num2);
+            document.getElementById("answer").innerHTML = num1 + " subtract " + num2 + " = " + total;
+        }
+
+        //Function to multiply contents of input box 1 and input box 2. Almost identical as first function but multiplies instead
+		function mulNum(){
+            var num1 = document.getElementById("inbox1").value;
+            var num2 = document.getElementById("inbox2").value;
+            var total = Number(num1) * Number(num2);
+            document.getElementById("answer").innerHTML = num1 + " multiplied by " + num2 + " = " + total;
+        }
+
+		//Function to divide contents of input box 1 and input box 2. Almost identical as first function but divides instead
+        function divNum(){
+            var num1 = document.getElementById("inbox1").value;
+            var num2 = document.getElementById("inbox2").value;
+            var total = Number(num1) / Number(num2);
+            document.getElementById("answer").innerHTML = num1 + " divided by " + num2 + " = " + total;
+        }
+
+	</script>
+</html>

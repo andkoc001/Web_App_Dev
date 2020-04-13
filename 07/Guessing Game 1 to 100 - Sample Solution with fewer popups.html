@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title> Guessing Game 1 - 100 </title>
+</head>
+<body>
+
+	<button onclick="start()">Start Guessing Game</button>
+	<h1 id="output"></h1>
+	<img id="facepic" height="200" alt="Sad or happy face" hidden>
+	
+	
+
+</body>
+
+<script>
+function start()
+{
+	//Counter variable to count goes, and used at end to show how many attempts user took
+	var counter;
+	var message = "Please enter a number between 1 and 100. "; //In this example, a variable is used to hold the message displayed in the popup
+	
+	//Generate random number between 1 and 100
+	var randomNum = Math.ceil (Math.random() * 100);
+	alert(randomNum); //For testing purposes
+		
+	//For loop: The loop uses the counter variable starting at 1, and will keep running while the counter is less than or equal to 6. The counter variable will increment by 1 on each iteration of the loop.
+	for (counter=1; counter<=6; counter++){
+			var guessnum =  (prompt (message + "You are on attempt no. " + counter)); //Ask the user to guess - This will display the "message" variable
+			if (guessnum == randomNum){ //If the uses guesses the correct number,
+					alert ("Good Guess");  // then an alert saying "Good guess" pops up
+					break; // The loop ends if the uses guesses the correct number. If break isn't here, then it would ask the user to guess again
+				} else if (guessnum < randomNum) { //If the user guesses too low
+					message = "Too low! Try again. "; // Change the message variable to suit
+				} else if(guessnum > randomNum) { //If the user guesses too low
+					message = "Too high! Try again. ";
+				}
+		}
+
+	//"If" test after the loop is finished. This is to tell the user whether or not they were successful
+	if (counter <= 6){        // If the number of attempts was less than, or equal to 6 then the user must have guessed correctly
+			document.getElementById("output").innerHTML = ("Well done, you guessed correctly! It took you " + counter + " attempts to guess.");
+			document.getElementById("facepic").hidden = false;
+			document.getElementById("facepic").src = "smile.jpg";
+			
+	} 
+	// Otherwise the user must not have guessed correctly
+	else {
+			document.getElementById("output").innerHTML = ("You ran out of attempts! The correct number was: " + randomNum);
+			document.getElementById("facepic").hidden = false;
+			document.getElementById("facepic").src = "sadface.jpg";
+	}
+}
+	
+	
+</script>
+
+</html>

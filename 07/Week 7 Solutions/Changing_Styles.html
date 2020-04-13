@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+	<head>
+        <title>Changing Elements Through the DOM</title>
+    </head>
+
+    <body>
+              <h1>Changing styles with the DOM</h1>
+			  <h1 id="changingH1">Change this text</h1>
+			  <button onclick="changeColor()">Change Font Colour</button>
+			  <button onclick="changeSize()">Change Font Size</button>
+			  <button onclick="changeStyle()">Change Font Style</button>
+			  
+    </body>
+
+    <script>
+		
+		function changeColor(){
+			document.getElementById("changingH1").style.color = "red";
+		}
+
+		function changeSize(){
+			document.getElementById("changingH1").style.fontSize = "60px";
+		}
+
+		function changeStyle(){
+			document.getElementById("changingH1").style.fontStyle = "italic";
+		}
+
+
+	</script>
+</html>
