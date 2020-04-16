@@ -1,0 +1,13 @@
+body {
+	background-color: #333;
+	font-family: sans-serif;
+	color: #999;
+}
+
+#mydiv {
+	border: 1px dotted gray;
+}
+
+rect:hover {
+	fill: rgb(98, 214, 250);
+}
