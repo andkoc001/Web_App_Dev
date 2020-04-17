@@ -19,28 +19,48 @@ d3.csv("sales_data.csv")
     })
 
 
-    // create a scale for Y axis
+    // Variables for chart bar values
+    var myHeight = 350;
+    var barWidth = 40;
+    var dataCount = data.length;
+    var gap = 8;
+    var leftOffset = 50 + 0.5 * gap;
+    var myWidth = (barWidth + gap) * dataCount;
+
+    // declaree a scale for X axis
+    // mapping categorical values from the csv file
+    var xScale = d3.scaleBand()
+      .domain(data.map(function (d) {
+        return d.Month;
+      }))
+      .range([0, (myWidth + gap * (dataCount))]) // from 0 to (width of bar + gap)
+
+
+    // declare a scale for Y axis
     var yScale = d3.scaleLinear()
       // source of data - what is written on the axis
       .domain([0, d3.max(data, function (d) {
         return d.Sales;
       }) + 0]) //.domain([0, 500])  // <-- a simple case
       // mapped destination - where the axis is placed
-      .range([350, 0]) // note the reveresed order for axes values going from bottom up
+      .range([myHeight, 0]) // note the reveresed order for axes values going from bottom up
       ; // <-- note semicolon here!
 
+
+    // create X axis
+    var xAxis = d3.axisBottom()
+      .scale(xScale);
 
     // create Y axis
     var yAxis = d3.axisLeft()
       .scale(yScale); // <-- semicolon!
 
 
-
     // create a svg container (still inside the curly brackets!)
     var svgContainer = d3.select("#myDiv").append("svg")
-      .attr("height", 400)
-      .attr("width", 600)
-      .attr("transform", "translate(0, 10)");
+      .attr("height", myHeight + 75)
+      .attr("width", myWidth * dataCount)
+      .attr("transform", "translate(0, 10)"); // offset
 
 
     // RECTANGLE BARS
@@ -55,40 +75,26 @@ d3.csv("sales_data.csv")
 
       // transition state zero (initial)
       .attr("fill", "#333")
+      // function will run and returns i (the index value of the array)
+      // d = data, i = index
       .attr("x", function (d, i) {
-        return 50 + (i * 42); // initial offset (left margin) + width of rectangle (40) + 2 for gap between them
+        return leftOffset + (i * (myWidth / dataCount + gap)); // initial offset (left margin) + width of rectangle (40) + 2 for gap between them
       })
-      .attr("y", 350)
-      .attr("width", 40)
-
+      .attr("y", myHeight)
+      .attr("width", (myWidth / dataCount))
 
       // transition state one 
       .transition()
       .duration(1000)
-
-
-      // function will run and returns i (the index value of the array)
-      // d = data, i = index
-      .attr("x", function (d, i) {
-        return 50 + (i * 42); // initial offset + width of rectangle (40) + 2 for gap between them
-      })
-
       //.attr("y", 50) // this would produce bars hanging down, from baseline 50px from top
       .attr("y", function (d, i) {
         return yScale(d.Sales) // baseline 300px from top, minus (i.e. going up) the height of the rect
       })
-
-      .attr("width", 40)
-
-      // without scaling
-      //.attr("height", function (d) {return d.Sales;}) // takes value of Sales from the imported csv; *10 to magnify the result
-
+      // without scaling      //.attr("height", function (d) {return d.Sales;}) // takes value of Sales from the imported csv; *10 to magnify the result
       // with scaling
       .attr("height", function (d) {
-        return 350 - yScale(d.Sales);
+        return myHeight - yScale(d.Sales);
       })
-
-
       .attr("fill", "steelblue")
 
 
@@ -101,12 +107,14 @@ d3.csv("sales_data.csv")
     mylabel.enter().append("text")
 
       // transition state zero (initial)
+      .attr("text-anchor", "middle")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "18px")
       .attr("fill", "steelblue")
       .attr("x", function (d, i) {
-        return 70 + (i * 42); // width of rectangle (40) + 2 for gap between them
+        return (leftOffset + 0.5 * myWidth / dataCount) + (i * (myWidth / dataCount + gap)); // width of rectangle (40) + 2 for gap between them
       })
       .attr("y", 350)
-
 
       // transition state one 
       .transition()
@@ -115,21 +123,12 @@ d3.csv("sales_data.csv")
         return 650 + (i * 25);
       })
       .ease(d3.easeCubicInOut) // d3.easeCircleIn, d3.easeElasticOut, d3.easeLinear
-
       // positioning
-      .attr("x", function (d, i) {
-        return 70 + (i * 42); // (50+20) to centre text in the middle of the bar; width of rectangle (40) + 2 for gap between them
-      })
       .attr("y", function (d) {
-        return (580 * (350 / 580) + 20) - d.Sales * (350 / 580)  // baseline from top + 20px into the bar, minus (i.e. going up) the height of the rect
-      }) // max = 580, scale = 350
-
+        return (d3.max(data, function (d) { return d.Sales; }) * (myHeight / d3.max(data, function (d) { return d.Sales; })) + 20) - d.Sales * (myHeight / d3.max(data, function (d) { return d.Sales; }))  // baseline from top + 20px into the bar, minus (i.e. going up) the height of the rect
+      })// max = 580, scale = 350
       // text style
-      .attr("text-anchor", "middle")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "18px")
       .attr("fill", "white")
-
       // text content
       .text(function (d) {
         return d.Sales; // Sales from csv file + unicode degree symbol 
@@ -150,43 +149,54 @@ d3.csv("sales_data.csv")
       .delay(2500)
       // positioning
       .attr("x", function (d, i) {
-        return 60 + (i * 42); // (50+20) to centre text in the middle of the bar; width of rectangle (40) + 2 for gap between them
+        return (leftOffset + 0.5 * myWidth / dataCount) + (i * (myWidth / dataCount + gap)); // (50+20) to centre text in the middle of the bar; width of rectangle (40) + 2 for gap between them
       })
-      .attr("y", 365)
-
+      .attr("y", 0.9 * myHeight)
       // text style
       .attr("text-anchor", "middle")
       .attr("font-family", "sans-serif")
       .attr("font-size", "8px")
-      .attr("fill", "#333")
-
+      .attr("fill", "steelblue")
       // text content
       .text(function (d) {
         return d.Month; // months names from csv file
       })
 
-
       // transition state two
       .transition()
-      .duration(2000)
+      .duration(2500)
       .delay(function (d, i) {
-        return 400 + (i * 250);
+        return 200 + (i * 250);
       })
       .ease(d3.easeBounceOut)
-
-      // horizontal positioning
-      .attr("x", function (d, i) {
-        return 70 + (i * 42); // (50+20) to centre text in the middle of the bar; width of rectangle (40) + 2 for gap between them
+      // Vertical positioning
+      .attr("y", function (d) {
+        return (d3.max(data, function (d) { return d.Sales; }) * (myHeight / d3.max(data, function (d) { return d.Sales; })) + 30) - d.Sales * (myHeight / d3.max(data, function (d) { return d.Sales; }))  // baseline from top + 20px into the bar, minus (i.e. going up) the height of the rect
       })
+      .attr("fill", "#ccc")
 
-      // centre the text (around the horizontal positioning)
-      .attr("fill", "#aaa");
+      // transition state three
+      .transition()
+      .duration(4000)
+      .delay(1000)
+      .attr("fill", "steelblue")
+      .ease(d3.easeLinear);
 
 
-    // AXES
+    // AXES rendering
 
     svgContainer.append("g") // 'g' denotes group
-      .attr("transform", "translate(46, 0)")
+      .attr("transform", "translate(50," + myHeight + ")") // note that height is inside quote marks - it is a text that need to be concatinated!
+      .call(xAxis)
+      // apply the below to all text elements
+      .selectAll("text")
+      .attr("transform", "rotate(-60)")
+      .attr("text-anchor", "end")
+      .attr("x", "-8") // by trial and error
+      .attr("y", "8");
+
+    svgContainer.append("g") // 'g' denotes group
+      .attr("transform", "translate(" + (leftOffset - 0.5 * gap) + ", 0)")
       .call(yAxis);
 
 
