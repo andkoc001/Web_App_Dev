@@ -1,0 +1,213 @@
+<!DOCYPE html>
+	<!-- Web Application Development - Project, GMIT 2020 -->
+	<!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+	<!-- Lecturer: dr. Michael Duignan -->
+
+	<!-- Connect to localhost:8000 -> in the folder with the html file open terminal and type
+  python -m http.server -->
+
+
+	<head>
+		<title> WAD Project - login </title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Web Application Development, GMIT 2020">
+		<meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<header>
+
+			<h1 class="logo">Web Application Development</h1>
+
+			<nav id="topnav">
+
+				<ul class="menu">
+					<li><a href="start.html">Start</a></li>
+					<li><a href="#">HTML Forms</a></li>
+					<li><a href="#">DOM Manipulation</a></li>
+					<li><a href="#">Data Vis (csv)</a></li>
+					<li><a href="#">Data Vis (array)</a></li>
+				</ul>
+
+			</nav>
+
+		</header>
+
+		<main>
+
+			<article>
+
+				<section>
+					<div class="leadin">
+
+						<header>
+							<h1> HTML Forms Demonstration </h1>
+							<p> Here is a demo of the HTML forms functionality.</p>
+							<p> The demo is a simulation of a car specification selection in a car dealer shop. </p>
+						</header>
+
+					</div>
+				</section>
+
+				<section class="mainsection">
+					<div id="forms">
+
+						<header>
+							<h1> Options </h1>
+							<p> Select options for your dream car! </p>
+						</header>
+
+						<form id="newCarForm" action="sent.html" method="psot" enctype="multipart/form-data">
+
+							<div class="row">
+								<fieldset>
+									<legend> Body type </legend>
+
+									<div style="float: left; margin-right: 15px;"><label><input type="radio" value="1" name="body"
+												checked> Saloon </label>
+									</div>
+									<div style="float: left; margin-right: 15px;"><label><input type="radio" value="2" name="body">
+											Hatchback </label></div>
+									<div style="float: left; margin-right: 15px;"><label><input type="radio" value="3" name="body">
+											Estate </label></div>
+									<div style="clear: both;"></div>
+								</fieldset>
+							</div>
+
+							<div class="row">
+								<label for="engine"> Engine: </label>
+								<select id="engine" name="engine">
+									<option value="d"> Diesel </option>
+									<option value="p" selected> Petrol </option>
+									<option value="e"> Electric </option>
+									<option value="h"> Hybrid </option>
+								</select>
+							</div>
+
+
+							<div class="row">
+								<fieldset>
+									<legend> Extras </legend>
+
+									<div class="col">
+										<div><label><input type="checkbox" name="extras[]" value="1" disabled checked> ABS </label>
+										</div>
+										<div><label><input type="checkbox" name="extras[]" value="2" disabled checked> ESP </label>
+										</div>
+										<div><label><input type="checkbox" name="extras[]" value="3"> Leather Seats </label></div>
+									</div>
+
+									<div class="col">
+										<div><label><input type="checkbox" name="extras[]" value="4"> Cruise Control </label></div>
+										<div><label><input type="checkbox" name="extras[]" value="5"> Air Conditioning </label></div>
+										<div><label><input type="checkbox" name="extras[]" value="6"> Bluetooth </label></div>
+									</div>
+
+									<div class="col">
+										<div><label><input type="checkbox" name="extras[]" value="7"> Fog Lights </label>
+										</div>
+										<div><label><input type="checkbox" name="extras[]" value="8"> Tinted Window </label>
+										</div>
+										<div><label><input type="checkbox" name="extras[]" value="9"> Parking Sensors </label></div>
+									</div>
+
+									<div class="col">
+										<div><label><input type="checkbox" name="extras[]" value="10"> Rear Camera </label></div>
+										<div><label><input type="checkbox" name="extras[]" value="11"> LED Lights </label></div>
+										<div><label><input type="checkbox" name="extras[]" value="12"> Heated Seats </label>
+										</div>
+									</div>
+								</fieldset>
+
+							</div>
+
+							<div class="row">
+								<label> Paint Colour <input type="color" name="color" value="#ff0000"></label>
+							</div>
+
+							<div class="row">
+								<label> Number of Keys <input type="number" name="keys" value="1" min="1" max="5" step="1"></label>
+							</div>
+
+							<div class="row">
+								<label for="scent"> Scent (can be more than one!) </label>
+								<div style="margin-top:10px;">
+									<select name="scent[]" multiple size="4">
+										<option value="k"> Coconut </option>
+										<option value="c" selected> Citron </option>
+										<option value="t"> Forrest </option>
+										<option value="b"> Ocean </option>
+									</select>
+								</div>
+							</div>
+
+
+							</fieldset>
+							<div class="row">
+								<label> Tank Filled Level </label><meter min="0" max="100" title="procent" value="90" low="10" high="90"
+									optimum="75"></meter>
+							</div>
+
+							<fieldset>
+								<legend> Your Details </legend>
+								<div class="row">
+
+									<label> First Name <input type="text" name="Firstname" placeholder="What is your first name?"></label>
+									<label> Last Name <input type="text" name="Lastname" placeholder="What is your last name?"></label>
+
+								</div>
+
+								<div class="row">
+									<label> Address <input type="address" name="address"></label>
+								</div>
+
+								<div class="row">
+									<label> E-mail Address <input type="email" name="email" required> (required)</label>
+								</div>
+
+								<div class="row">
+									<label> Telephone Number <input type="tel" name="telephone"></label>
+								</div>
+
+								<div class="row">
+									<label> Promotional Code <input type="password" name="password"></label>
+								</div>
+
+							</fieldset>
+
+							<div class="row">
+								Preferred Delivery
+								<label> Date <input type="date" name="day"></label>
+								<label> Time <input type="time" name="hour" step="1" min="09:00" max="18:00"></label>
+							</div>
+
+
+							<div class="row">
+								<div><label for="comment"> Additional Notes </label></div>
+								<textarea name="comment" id="comment" rows="4" cols="116" maxlength="25" minlength="10"
+									placeholder="Enter additional information... "></textarea>
+							</div>
+
+							<div class="row">
+								<button type="submit" id="itakeit" onclick="submitAll()"> I'll take it! </button>
+								<button type="reset" id="startover" onclick="resetAll()"> Reset form and start over </button>
+							</div>
+
+						</form>
+
+					</div>
+				</section>
+
+			</article>
+
+		</main>
+
+	</body>
+
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="wad_project.js"></script>
+
+	</html>

@@ -1,0 +1,23 @@
+/*
+Title: Web Application Development - Project, GMIT 2020
+Author: Andrzej Kocielski, G00376291@gmit.ie
+*/
+// ----------------------------------------------------
+
+// Adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal
+
+// Get the modal
+var modal = document.getElementById('login_pop');
+
+
+// ----------------------------------------------------
+
+// Adopted from: https://www.daniweb.com/programming/web-development/code/330933/a-simple-html-login-page-using-javascript
+
+// function that verifies the user's credential 
+function check(form) /*function to check userid & password*/ {
+  /*the following code checkes whether the entered userid and password are matching*/
+  if (form.u_name.value == "User" && form.psw.value == "pass") {
+    window.open("start.html")/*opens the target page while Id & password matches*/
+  }
+}
