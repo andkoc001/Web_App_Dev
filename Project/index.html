@@ -4,7 +4,7 @@
 	<!-- Lecturer: dr. Michael Duignan -->
 
 	<!-- Connect to localhost:8000 -> in the folder with the html file open terminal and type
-  python -m http.server -->
+		python -m http.server -->
 
 
 	<head>
@@ -13,9 +13,10 @@
 		<meta name="description" content="Web Application Development, GMIT 2020">
 		<meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
 		<link rel="stylesheet" href="style.css" type="text/css" />
-		<link rel="stylesheet" href="login.css" type="text/css" />
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;;subset=latin-ext" rel="stylesheet">
 	</head>
+
+	<script src="login.js"></script>
 
 	<body onload="document.getElementById('login_pop').style.display='block'">
 		<!-- As soon as the page is loaded, a JS script will be activated. -->
@@ -27,11 +28,10 @@
 		</header>
 
 		<main>
-
 			<article>
 
 				<section>
-					<!-- Login window -->
+					<!-- Login box -->
 					<div id="login_pop" class="modal">
 
 						<form class="modal-content animate" method="get">
@@ -40,15 +40,17 @@
 								<label for="u_name"><b>Username</b></label>
 								<input name="u_name" type="text" placeholder="Enter Username" required>
 
-								<label for="psw"><b>Password</b></label>
+								<label for="u_email"><b>Email</b></label>
+								<input name="u_email" type="email" placeholder="Enter email" required>
+
+								<label for="psw"><b>Password (disabled for testing)</b></label>
 								<input name="psw" type="password" placeholder="Disabled while testing" value="pass" required disabled>
 
 								<button id="reset" type="reset" value="Reset"> Reset </button>
 								<button type="submit" onclick="check(this.form)"> Login </button>
-
 							</div>
 
-							<div class="hint" style="background-color:#555">
+							<div class="hint">
 								For testing, use the Username "User" and Password provided.
 							</div>
 
@@ -58,13 +60,18 @@
 				</section>
 
 			</article>
-
 		</main>
+
+		<footer>
+
+			<div class="info" style="position: fixed; bottom: 20px; width: 100%;">
+				Andrzej Kocielski (G00376291@gmit.ie), 2020
+			</div>
+
+		</footer>
 
 	</body>
 
 	<script src="https://d3js.org/d3.v5.min.js"></script>
-	<script src="wad_project.js"></script>
-	<script src="login.js"></script>
 
 	</html>
