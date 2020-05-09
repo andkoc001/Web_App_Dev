@@ -36,7 +36,7 @@
 
 						<form class="modal-content animate" method="get">
 
-							<div class="loginbox">
+							<div id="loginbox">
 								<label for="u_name"><b>Username</b></label>
 								<input name="u_name" type="text" placeholder="Enter Username" required>
 
@@ -46,8 +46,8 @@
 								<label for="psw"><b>Password (disabled for testing)</b></label>
 								<input name="psw" type="password" placeholder="Disabled while testing" value="pass" required disabled>
 
-								<button id="reset" type="reset" value="Reset"> Reset </button>
-								<button type="submit" onclick="check(this.form)"> Login </button>
+								<button class="reset" type="reset" value="Reset" style="width: 100%;"> Reset </button>
+								<button type="submit" onclick="check(this.form)" style="width: 100%;"> Login </button>
 							</div>
 
 							<div class="hint">

@@ -6,26 +6,6 @@ Adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_logi
 */
 
 
-/* Set a style for all buttons */
-button {
-  background-color: rgb(28, 32, 110);
-  color: #ddd;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-	width: 100%;
-	border-radius: 0;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-#reset {
-	background-color: rgb(161, 52, 1);
-}
-
 
 /* Centre the form */
 .loginbox {
@@ -33,6 +13,7 @@ button:hover {
 }
 
 .hint {
+  background-color: #345;
 	font-size: 12px;
 	padding: 5px 18px;
 }

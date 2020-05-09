@@ -10,8 +10,9 @@ for_reference_only
 {
 	background-color: #124; /* 1st background - website */ 
 	background-color: #334; /* 2nd background - main section*/
-	background-color: #345; /* 3rd background - fields */
-	background-color: #3ad; /* menu bar background, buttons background */
+	background-color: #234; /* 3rd background - fields */
+	background-color: #05a; /* menu bar background*/
+	background-color: #3ad; /* buttons background */
 	
 	color: #eee; /* 1st text colour - main text */
 	color: #bbd; /* 2nd text colour */
@@ -20,8 +21,9 @@ for_reference_only
 	color: #1df; /* 1st headline colour, website title */
 	color: #9df; /* 2nd headline colour */
 	
-	color: #fd7; /* 1st highlight colour */
-	color: #cfd; /* 2nd highlight colour */
+	color: #f80; /* 1st highlight colour, logo text */
+	color: #fd7; /* 2nd highlight colour */
+	color: #cfd; /* 3rd highlight colour */
 }
 
 
@@ -30,17 +32,18 @@ for_reference_only
 body
 {
 	margin: 0;
-	padding: 0px 60px;
+	padding: 0px 0px;
 	background-color: #124;
 	color: #eee;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 17px;
+	font-size: 16px;
 	
 }
 
 /* Web site title */
 h1.logo
 {
+	color: #f80;
 	font-size: 44px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -49,94 +52,10 @@ h1.logo
 	margin-bottom: 40px;
 }
 
-
-/* --- --- --- */
-/* Login page; adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal */
-
-/* Set a style for all buttons */
-button {
-	background-color: #3ad;
-	color: #eee;
-	font-weight: 700;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-	width: 100%;
-	border-radius: 0px;
-}
-
-button:hover {
-	opacity: 0.8;
-}
-
-#reset {
-	background-color: #a32;
-}
-
-
-/* Centre the form */
-.loginbox {
-  padding: 16px;
-}
-
-.hint {
-	background-color: #345;
-	font-size: 12px;
-	padding: 5px 18px;
-}
-
-
-/* The Modal (login box) */
-.modal {
-  display: block;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  padding-top: 40px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #334;
-  margin: 100px auto 10px auto; /* 100px from the top, 10px from the bottom and centered */
-  border: 2px solid #777;
-  width:  50%;   
-  max-width: 400px;
-  min-width: 200px;
-}
-
-/* Full-width input fields */
-input[type=text], input[type=email], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-/* Add Zoom Animation */
-.animate {
-  animation: animatezoom 0.4s
-}
-
-@keyframes animatezoom {
-  from {transform: scale(.5)} 
-  to {transform: scale(1)}
-}
-
-
-
-/* --- --- --- */
-
 /* Navigation Bar */
 #topnav
 {
-	background-color: #3ad;
+	background-color: #05a;
 	text-align: center;
 }
 
@@ -156,25 +75,29 @@ input[type=text], input[type=email], input[type=password] {
 	display: inline-block;
 	padding-left: 20px;
 	padding-right: 20px;
-	border-right: 1px dashed #345;
+	border-right: 2px dashed #124;
 }
 
 /* Add left border to the first menu element */
 .menu > li:first-child
 {
-	border-left: 1px dashed #345;
+	border-left: 2px dashed #124;
 }
 
 .menu a
 {
 	color: #fff;
+	color: #f80;
+	color: #fd7;
 	text-decoration: none;
 }
 
 .menu a:hover
 {
 	color: #fd7;
+	color: #f80;
 }
+
 
 /* --- --- --- */
 
@@ -192,6 +115,7 @@ h1
 	font-size: 32px;
 	font-weight: 400;
 	color: #1df;
+	color: #fd7;
 	margin-bottom: 20px;
 	text-align: center;
 }
@@ -203,21 +127,21 @@ h1
 }
 
 /* Collection of the main website content elements */
-.entries
+.core
 {
 	margin-left: auto;
 	margin-right: auto;
-	width: 950px;
 	text-align: center;
+	width: 950px;
 	padding-top: 10px;
-	padding-bottom: 80px;
+	padding-bottom: 40px;
 	margin-top: 40px;
 }
 
 /* Different background to visualy separate entries */
 .entry
 {
-	background-color: #345;
+	background-color: #234;
 	padding: 10px;
 	text-align: justify;
 	margin-top: 40px;
@@ -254,31 +178,29 @@ h2
 
 
 /* --- --- --- */ 
+/* Form */ 
 
-#forms
+#newCarForm 
 {
-	margin-left: auto;
-	margin-right: auto;
-	width: 950px;
-	padding-top: 10px;
-	padding-bottom: 80px;
-	margin-top: 40px;
-}
-
-#forms p
-{
-	text-align: center;
+	text-align: left;
 }
 
 .row
 {
-	margin: 20px 0 30px;
+	margin: 20px 0 10px;
 }
 
 .col
 {
 	display: inline-block;
-	margin: 0 10px;
+	margin: 0 15px;
+	max-width: 300px;
+}
+
+.float
+{
+	float: left;
+	margin-right: 15px;
 }
 
 legend
@@ -297,10 +219,11 @@ legend
 }
 
 
+
 /* --- --- --- */
 /* Data visualisation */
 
-#mydiv {
+#dataViz1 {
 	height: 400px;
 	width: 800px;
 	margin-left: auto;
@@ -316,84 +239,182 @@ rect:hover {
 }
 
 
+#dataViz2 {
+	height: 400px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	text-align: center;
+	padding: 10px 10px 30px;
+	border: 1px dotted gray;
+}
+
+rect:hover {
+	fill: #3ad;
+}	
+
+
+
+/* --- --- --- */
+/* Login page; adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal */
+
+/* Set a style for all buttons */
+button {
+	background-color: #05a;
+	color: #fd7;
+	font-weight: 700;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 0px;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+.reset {
+	background-color: #a32;
+	color: #fd7;
+}
+
+#itakeit
+{
+	width: 48%;
+	min-width: 250px;
+}
+
+
+
+/* Centre the form */
+#loginbox {
+	padding: 16px;
+}
+
+.hint {
+	background-color: #234;
+	font-size: 12px;
+	padding: 5px 18px;
+}
+
+
+/* The Modal (login box) */
+.modal {
+	display: block;
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	padding-top: 40px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #334;
+	margin: 100px auto 10px auto; /* 100px from the top, 10px from the bottom and centered */
+	border: 2px solid #777;
+	width:  50%;   
+	max-width: 400px;
+	min-width: 200px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=email], input[type=password], input[type=address], input[type=tel] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+/* Add Zoom Animation */
+.animate {
+	animation: animatezoom 0.4s
+}
+
+@keyframes animatezoom {
+	from {transform: scale(.5)} 
+	to {transform: scale(1)}
+}
+
 /* --- --- --- */ 
 
 /* Links to social media accounts */
 .socials
 {
-	width:100%;
-	text-align: center;
-	background-color: #334;
-	margin: 20px 0;
-	padding: 20px 0;
-}
-
-.socialdivs
-{
-	width: 948px;
+	width:950px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
+	background-color: #334;
+	margin-top: 20px;
+	padding: 15px 0;
 	color: #bbd;
-}
+}	
 
 .fb
 {
 	width: 236px;
 	height: 22px;
 	float: left;
-}
+}	
 
 .fb:hover
 {
 	background-color: #4668b3;
-}
+}	
 
 .yt
 {
 	width: 236px;
 	height: 22px;
 	float: left;
-}
+}	
 
 .yt:hover
 {
 	background-color: #d94348;
-}
+}	
 
 .tw
 {
 	width: 236px;
 	height: 22px;
 	float: left;
-}
+}	
 
 .tw:hover
 {
 	background-color: #3095d3;
-}
+}	
 
 .gplus
 {
 	width: 236px;
 	height: 22px;
 	float: left;
-}
+}	
 
 .gplus:hover
 {
 	background-color: #d95333;
-}
+}	
 
 /* --- --- --- */
 
-/* Author, copyright, thanks etc */
+/* Footer: author, copyright, thanks etc */
 .info
 {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	padding: 20px;
+	padding: 10px;
 	color: #bbd;
 	font-size: 10px;
 	z-index: 0
-}
+}	

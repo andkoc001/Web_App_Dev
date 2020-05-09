@@ -57,7 +57,7 @@ d3.csv("sales_data.csv")
 
 
     // create a svg container (still inside the curly brackets!)
-    var svgContainer = d3.select("#myDiv").append("svg")
+    var svgContainer = d3.select("#dataViz1").append("svg")
       .attr("height", myHeight + 75)
       .attr("width", myWidth * dataCount)
       .attr("transform", "translate(0, 10)"); // offset

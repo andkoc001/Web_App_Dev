@@ -28,8 +28,8 @@
 					<li><a href="start.html">Start</a></li>
 					<li><a href="#">HTML Forms</a></li>
 					<li><a href="#">DOM Manipulation</a></li>
-					<li><a href="#">Data Vis (csv)</a></li>
-					<li><a href="#">Data Vis (array)</a></li>
+					<li><a href="datavis1.html">Data Vis (csv)</a></li>
+					<li><a href="datavis2.html">Data Vis (array)</a></li>
 				</ul>
 
 			</nav>
@@ -53,13 +53,14 @@
 				</section>
 
 				<section class="mainsection">
-					<div id="forms">
+					<div class="core">
 
 						<header>
 							<h1> Options </h1>
 							<p> Select options for your dream car! </p>
 						</header>
 
+						<!-- Inspired by pasja-informatyki.pl -->
 						<form id="newCarForm" action="sent.html" method="psot" enctype="multipart/form-data">
 
 							<div class="row">
@@ -78,7 +79,7 @@
 							</div>
 
 							<div class="row">
-								<label for="engine"> Engine: </label>
+								<label for="engine"> Engine </label>
 								<select id="engine" name="engine">
 									<option value="d"> Diesel </option>
 									<option value="p" selected> Petrol </option>
@@ -88,7 +89,7 @@
 							</div>
 
 
-							<div class="row">
+							<div class="row" style="min-width: 750px;">
 								<fieldset>
 									<legend> Extras </legend>
 
@@ -117,43 +118,42 @@
 									<div class="col">
 										<div><label><input type="checkbox" name="extras[]" value="10"> Rear Camera </label></div>
 										<div><label><input type="checkbox" name="extras[]" value="11"> LED Lights </label></div>
-										<div><label><input type="checkbox" name="extras[]" value="12"> Heated Seats </label>
-										</div>
+										<div><label><input type="checkbox" name="extras[]" value="12"> Heated Seats </label></div>
 									</div>
 								</fieldset>
 
 							</div>
 
-							<div class="row">
-								<label> Paint Colour <input type="color" name="color" value="#ff0000"></label>
+
+							<div class="row float">
+								<label> Paint Colour <input type="color" name="color" value="#11aaff"></label>
 							</div>
 
-							<div class="row">
+							<div class="row float">
 								<label> Number of Keys <input type="number" name="keys" value="1" min="1" max="5" step="1"></label>
 							</div>
 
-							<div class="row">
-								<label for="scent"> Scent (can be more than one!) </label>
-								<div style="margin-top:10px;">
-									<select name="scent[]" multiple size="4">
-										<option value="k"> Coconut </option>
-										<option value="c" selected> Citron </option>
-										<option value="t"> Forrest </option>
-										<option value="b"> Ocean </option>
-									</select>
-								</div>
-							</div>
-
-
-							</fieldset>
-							<div class="row">
+							<div class="row float">
 								<label> Tank Filled Level </label><meter min="0" max="100" title="procent" value="90" low="10" high="90"
 									optimum="75"></meter>
 							</div>
 
+							<div class="row float">
+								<label for="scent" class="float"> Scent </label>
+								<select name="scent[]" multiple size="4" class="float">
+									<option value="c"> Coconut </option>
+									<option value="n" selected> New Car </option>
+									<option value="f"> Forrest </option>
+									<option value="o"> Ocean </option>
+								</select>
+								<div style="clear: both;"></div>
+							</div>
+							<div style="clear: both;"></div>
+
+
 							<fieldset>
 								<legend> Your Details </legend>
-								<div class="row">
+								<div class="row" style="margin-top: 0;">
 
 									<label> First Name <input type="text" name="Firstname" placeholder="What is your first name?"></label>
 									<label> Last Name <input type="text" name="Lastname" placeholder="What is your last name?"></label>
@@ -165,7 +165,7 @@
 								</div>
 
 								<div class="row">
-									<label> E-mail Address <input type="email" name="email" required> (required)</label>
+									<label> E-mail Address (required)<input type="email" name="email" required></label>
 								</div>
 
 								<div class="row">
@@ -175,8 +175,8 @@
 								<div class="row">
 									<label> Promotional Code <input type="password" name="password"></label>
 								</div>
-
 							</fieldset>
+
 
 							<div class="row">
 								Preferred Delivery
@@ -186,14 +186,18 @@
 
 
 							<div class="row">
-								<div><label for="comment"> Additional Notes </label></div>
-								<textarea name="comment" id="comment" rows="4" cols="116" maxlength="25" minlength="10"
-									placeholder="Enter additional information... "></textarea>
+								<div style="margin-bottom: 10px;"><label for="comment"> Additional Notes </label></div>
+								<textarea name="comment" id="comment" rows="4" cols="92" maxlength="25" minlength="10"
+									placeholder="Enter additional information... " style="padding: 10px;"></textarea>
 							</div>
 
 							<div class="row">
-								<button type="submit" id="itakeit" onclick="submitAll()"> I'll take it! </button>
-								<button type="reset" id="startover" onclick="resetAll()"> Reset form and start over </button>
+								<button type="submit" id="itakeit" onclick="submitAll()" style="float: left;"> I'll
+									take it! Send order </button>
+								<button type="reset" class="reset" onclick="resetAll()" style="float: right; width: 48%;">
+									Reset form and start over
+								</button>
+								<div style="clear: both;"></div>
 							</div>
 
 						</form>
@@ -204,6 +208,32 @@
 			</article>
 
 		</main>
+
+		<footer>
+
+			<div class="socials">
+				<div class="socialdivs">
+					<div class="fb">
+						<i class="icon-facebook">Facebook</i>
+					</div>
+					<div class="yt">
+						<i class="icon-youtube">You Tube</i>
+					</div>
+					<div class="tw">
+						<i class="icon-twitter">Twitter</i>
+					</div>
+					<div class="gplus">
+						<i class="icon-gplus">Google Plus</i>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</div>
+
+			<div class="info">
+				Andrzej Kocielski (G00376291@gmit.ie), 2020
+			</div>
+
+		</footer>
 
 	</body>
 
