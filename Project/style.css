@@ -86,15 +86,12 @@ h1.logo
 
 .menu a
 {
-	color: #fff;
-	color: #f80;
 	color: #fd7;
 	text-decoration: none;
 }
 
 .menu a:hover
 {
-	color: #fd7;
 	color: #f80;
 }
 
@@ -104,6 +101,7 @@ h1.logo
 /* This container hold a brief description of the website  */
 .leadin
 {
+	width: 950px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -114,7 +112,6 @@ h1
 {
 	font-size: 32px;
 	font-weight: 400;
-	color: #1df;
 	color: #fd7;
 	margin-bottom: 20px;
 	text-align: center;
@@ -173,7 +170,7 @@ h2
 {
 	font-size: 20px;
 	font-weight: 400;
-	color: #9df;
+	color: #1df;
 }
 
 
@@ -223,37 +220,58 @@ legend
 /* --- --- --- */
 /* Data visualisation */
 
-#dataViz1 {
-	height: 400px;
-	width: 800px;
+
+#dataVis1 {
+	height: 2000px;
+	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 40px;
+	margin-top: 20px auto;
+	margin-bottom: 20px;
 	text-align: center;
-	padding: 10px 10px 30px;
+	padding: 10px;
 	border: 1px dotted gray;
+	background-color: #234;
 }
 
-rect:hover {
-	fill: rgb(98, 214, 250);
-}
-
-
-#dataViz2 {
-	height: 400px;
-	width: 800px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 40px;
-	text-align: center;
-	padding: 10px 10px 30px;
-	border: 1px dotted gray;
-}
-
-rect:hover {
-	fill: #3ad;
+#dataVis1 > * > rect {
+	fill: #f80;
 }	
 
+#dataVis1 > * > circle {
+	opacity: 0.9;
+	stroke: #1df;
+	stroke-width: 1px;
+}	
+
+#dataVis1 > * > circle:hover {
+	opacity: 1.0;
+	stroke: #1df;
+	stroke-width: 1px;
+}	
+
+#dataVis1 > * > text {
+	fill: #eee;
+}
+
+
+/* --- --- --- */
+
+#dataVis2 {
+	height: 440px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px auto;
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 10px;
+	border: 1px dotted gray;
+}
+
+#dataVis2 > * > rect:hover {
+	fill: rgb(98, 214, 250);
+}
 
 
 /* --- --- --- */

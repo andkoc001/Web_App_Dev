@@ -37,13 +37,16 @@
 						<form class="modal-content animate" method="get">
 
 							<div id="loginbox">
-								<label for="u_name"><b>Username</b></label>
-								<input name="u_name" type="text" placeholder="Enter Username" required>
-
-								<label for="u_email"><b>Email</b></label>
+								<label for="u_email"><b>Email</b><span style="color: #f80; font-size: 11px;">
+										(required)</span></label>
 								<input name="u_email" type="email" placeholder="Enter email" required>
 
-								<label for="psw"><b>Password (disabled for testing)</b></label>
+								<label for="u_name"><b>Username</b><span style="color: #f80; font-size: 11px;">
+										(required)</span></label>
+								<input name="u_name" type="text" placeholder="Enter Username" required>
+
+								<label for="psw"><b>Password</b> <span style="font-size: 11px;"> (disabled for
+										testing)</span></label>
 								<input name="psw" type="password" placeholder="Disabled while testing" value="pass" required disabled>
 
 								<button class="reset" type="reset" value="Reset" style="width: 100%;"> Reset </button>
@@ -51,7 +54,8 @@
 							</div>
 
 							<div class="hint">
-								For testing, use the Username "User" and Password provided.
+								For testing, use the Username "<span style="color: #fd7;">User</span>" any email address and provided
+								Password.
 							</div>
 
 						</form>
