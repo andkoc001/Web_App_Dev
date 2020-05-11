@@ -1,10 +1,51 @@
 /*
+Web Application Development - Project, GMIT 2020
 Author: Andrzej Kocielski, G00376291@gmit.ie
-Description: Web Application Development, GMIT 2020
-Title: Exercise 12 - d3
+Lecturer: dr. Michael Duignan
 */
 // ////////////////////
 
+
+// -----------------
+// html form validation 
+
+// Form submit button
+function submitAll() {
+  document.getElementById("newCarForm").submit();
+}
+
+// Form reset button
+function resetAll() {
+  document.getElementById("newCarForm").reset();
+}
+
+
+// ////////////////////
+
+// DOM manipulation
+
+// While filling out form fields with clas .highlight1, text color changes
+
+function myFunctionIn() {
+  var x, i;
+  x = document.querySelectorAll(".highlight1");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.color = "blue";
+  }
+}
+
+function myFunctionOut() {
+  var x, i;
+  x = document.querySelectorAll(".highlight1");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.color = "black";
+  }
+}
+
+
+// ////////////////////
+
+// D3 
 
 // importing csv file with data into d3
 // d3.csv("file_name.csv")
@@ -201,19 +242,4 @@ d3.csv("sales_data.csv")
 
   });
 
-
 // -----------------
-// html form validation 
-input: required {
-  border: 2px solid red;
-}
-
-// Form submit button
-function submitAll() {
-  document.getElementById("newCarForm").submit();
-}
-
-// Form reset button
-function resetAll() {
-  document.getElementById("newCarForm").reset();
-}

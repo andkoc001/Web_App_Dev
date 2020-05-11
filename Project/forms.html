@@ -61,7 +61,7 @@
 						</header>
 
 						<!-- Inspired by pasja-informatyki.pl -->
-						<form id="newCarForm" action="sent.html" method="psot" enctype="multipart/form-data">
+						<form id="newCarForm" action="sent.html" method="get" enctype="multipart/form-data">
 
 							<div class="row">
 								<fieldset>
@@ -155,8 +155,12 @@
 								<legend> Your Details </legend>
 								<div class="row" style="margin-top: 0;">
 
-									<label> First Name <input type="text" name="Firstname" placeholder="What is your first name?"></label>
-									<label> Last Name <input type="text" name="Lastname" placeholder="What is your last name?"></label>
+									<label> First Name <input class="highlight1" type="text" name="Firstname"
+											placeholder="What is your first name?" onfocusin="myFunctionIn()"
+											onfocusout="myFunctionOut()"></label>
+									<label> Last Name <input class="highlight1" type="text" name="Lastname"
+											placeholder="What is your last name?" onfocusin="myFunctionIn()"
+											onfocusout="myFunctionOut()"></label>
 
 								</div>
 
@@ -165,8 +169,8 @@
 								</div>
 
 								<div class="row">
-									<label> E-mail Address (<span style="color: #f80" ;>required</span>)<input type="email" name="email"
-											required></label>
+									<label> E-mail Address <span style="color: #f80; font-size: 11px;">
+											(required)</span><input type="email" name="email" required></label>
 								</div>
 
 								<div class="row">
@@ -182,22 +186,23 @@
 							<div class="row">
 								Preferred Delivery
 								<label> Date <input type="date" name="day"></label>
-								<label> Time <input type="time" name="hour" step="1" min="09:00" max="18:00"></label>
+								<label> Time <input type="time" name="hour" step="1"></label>
 							</div>
 
 
 							<div class="row">
 								<div style="margin-bottom: 10px;"><label for="comment"> Additional Notes </label></div>
-								<textarea name="comment" id="comment" rows="4" cols="114" maxlength="25" minlength="10"
-									placeholder="Enter additional information... " style="padding: 10px;"></textarea>
+								<textarea name="comment" id="comment" rows="4" cols="113" maxlength="25" minlength="10"
+									placeholder="Enter additional information... " style="margin: 0 17px; padding: 10px;"></textarea>
 							</div>
 
 							<div class="row">
-								<button type="submit" id="itakeit" onclick="submitAll()" style="float: left;"> I'll
-									take it! Send order </button>
-								<button type="reset" class="reset" onclick="resetAll()" style="float: right; width: 48%;">
-									Reset form and start over
-								</button>
+								<!-- <button type="submit" id="itakeit" onclick="submitAll()" style="float: left;"> I'll
+									take it! Send order </button> -->
+								<input type="submit" class="submit" id="itakeit" value="I'll take it! Send order" />
+								<!-- <button type="reset" class="reset" onclick="resetAll()" style="float: right; width: 48%;">
+									Reset form and start over </button> -->
+								<input type="submit" class="reset" id="startover" value="Reset form and start overrrr" />
 								<div style="clear: both;"></div>
 							</div>
 
@@ -240,5 +245,28 @@
 
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src="wad_project.js"></script>
+
+	<!-- DOM manipulation-->
+	<script>
+
+		function myFunctionIn() {
+			var x, i;
+			x = document.querySelectorAll(".highlight1");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.color = "#05a";
+			}
+		}
+
+		function myFunctionOut() {
+			var x, i;
+			x = document.querySelectorAll(".highlight1");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.color = "black";
+			}
+		}
+
+	</script>
+
+
 
 	</html>

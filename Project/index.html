@@ -16,7 +16,9 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;;subset=latin-ext" rel="stylesheet">
 	</head>
 
+
 	<script src="login.js"></script>
+
 
 	<body onload="document.getElementById('login_pop').style.display='block'">
 		<!-- As soon as the page is loaded, a JS script will be activated. -->
@@ -34,7 +36,7 @@
 					<!-- Login box -->
 					<div id="login_pop" class="modal">
 
-						<form class="modal-content animate" method="get">
+						<form class="modal-content animate" action="start.html" method="get">
 
 							<div id="loginbox">
 								<label for="u_email"><b>Email</b><span style="color: #f80; font-size: 11px;">
@@ -49,13 +51,14 @@
 										testing)</span></label>
 								<input name="psw" type="password" placeholder="Disabled while testing" value="pass" required disabled>
 
-								<button class="reset" type="reset" value="Reset" style="width: 100%;"> Reset </button>
-								<button type="submit" onclick="check(this.form)" style="width: 100%;"> Login </button>
+								<!-- <button class="reset" type="reset" value="Reset" style="width: 100%;"> Reset </button> -->
+								<input type="submit" class="reset" value="Reset" style="width: 100%;" />
+								<!-- <button class="submit" type="submit" onclick="check(this.form)" style="width: 100%;"> Login </button> -->
+								<input type="submit" class="submit" value="Login" style="width: 100%;" />
 							</div>
 
 							<div class="hint">
-								For testing, use the Username "<span style="color: #fd7;">User</span>" any email address and provided
-								Password.
+								Password is provided for testing only.
 							</div>
 
 						</form>

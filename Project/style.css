@@ -205,6 +205,11 @@ legend
 	padding: 10px;
 }
 
+.highlight1
+{
+	background-color: #bbd;
+}
+
 /* Form sent confirmation message */
 #confirmation
 {
@@ -293,17 +298,53 @@ button:hover {
 	opacity: 0.8;
 }
 
-.reset {
-	background-color: #a32;
+.submit
+{
+	background-color: #05a;
 	color: #fd7;
+	font-weight: 700;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 0px;
+	float: left;
+}
+
+.submit:hover {
+	opacity: 0.8;
 }
 
 #itakeit
 {
 	width: 48%;
 	min-width: 250px;
+	margin-left: 4px;
 }
 
+.reset {
+	background-color: #a32;
+	color: #fd7;
+	font-weight: 700;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 0px;
+	float: right;
+}
+
+#startover
+{
+	width: 48%;
+	min-width: 250px;
+	margin-right: 4px;
+}
+
+
+.reset:hover {
+	opacity: 0.8;
+}
 
 
 /* Centre the form */
@@ -348,6 +389,12 @@ input[type=text], input[type=email], input[type=password], input[type=address], 
 	margin: 8px 0;
 	display: inline-block;
 	box-sizing: border-box;
+	background-color: #eee;
+}
+
+textarea, input[type=date], input[type=time], input[type=number]
+{
+	background-color: #eee;
 }
 
 /* Add Zoom Animation */
