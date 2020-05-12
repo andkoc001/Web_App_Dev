@@ -1,0 +1,192 @@
+<!DOCYPE html>
+	<!-- Web Application Development - Project, GMIT 2020 -->
+	<!-- Author: Andrzej Kocielski, G00376291@gmit.ie -->
+	<!-- Lecturer: dr. Michael Duignan -->
+
+	<!-- Connect to localhost:8000 -> in the folder with the html file open terminal and type
+  python -m http.server -->
+
+
+	<head>
+		<title> WAD Project - start </title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Web Application Development, GMIT 2020">
+		<meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<link rel="stylesheet" href="dom.css" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+		<header>
+
+			<h1 class="logo">Web Application Development</h1>
+
+			<nav id="topnav">
+
+				<ul class="menu">
+					<li><a href="start.html">Start</a></li>
+					<li><a href="forms.html">HTML Forms</a></li>
+					<li><a href="#">DOM Manipulation</a></li>
+					<li><a href="datavis1.html">Data Vis (array)</a></li>
+					<li><a href="datavis2.html">Data Vis (csv)</a></li>
+				</ul>
+
+			</nav>
+
+		</header>
+
+		<main>
+
+			<article>
+
+				<section>
+					<div class="leadin">
+
+						<header>
+
+							<h1> DOM Manipulation</h1>
+							<p> The Document Object Model is a cross-platform and language-independent interface that treats an XML or
+								HTML document as a tree structure wherein each node is an object representing a part of the document.
+								The DOM represents a document with a logical tree (Wikipedia).</p>
+
+						</header>
+
+					</div>
+				</section>
+
+				<section class="mainsection">
+					<div class="core">
+
+						<header>
+
+							<h1>DOM Funtionality Demonstration</h1>
+							<p>The project consists of the following main sections.</p>
+
+						</header>
+
+
+						<div class="entry" id="domStyle1">
+							<h2>Style modyfication</h2>
+
+							<p> Here are examples of changing website elements' style through DOM. </p>
+							<button onclick="changeTextStyle()" style="float: left; margin-right: 10px;"> Change text style </button>
+							<button onclick="changeColours()" style="float: left; margin-right: 10px;"> Change colours </button>
+							<button onclick="resetStyle()" style="float: left; margin-right: 10px;"> Reset </button>
+							<div style="clear: both;"></div>
+
+						</div>
+
+
+						<div class="entry" id="domStyle2">
+							<h2>Content modyfication</h2>
+
+							<p> DOM manipulation allows also changing the content of the website. </p>
+							<p id="sampleText"> Sample text. </p>
+							<div style="height: 100px;"><img id="picture" src="" /></div>
+							<div style="clear: both;"></div>
+							<button onclick="changeText()" style="float: left; margin-right: 10px;"> Change text </button>
+							<button onclick="addImage()" style="float: left; margin-right: 10px;"> Add image </button>
+							<button onclick="resetContent()" style="float: left; margin-right: 10px;"> Reset </button>
+							<div style="clear: both;"></div>
+
+						</div>
+
+
+						<div class="entry">
+							<h2>Object Animation</h2>
+
+							<p>Click the buttons to activate the timing-function animation and move the ball from one end to
+								another. Clicking on the below buttons initiates movement of the ball. The motion eases-out, that is it
+								slows down at the end.
+							</p>
+							<button onclick="ping()"> Ping! </button>
+							<button onclick="pong()" style="float: right;"> Pong! </button>
+							<div style="clear: both;"></div>
+
+							<div id="pingpong"></div>
+
+						</div>
+
+
+						<div class="entry">
+							<h2>User interface</h2>
+
+							<p> A simple calulator, where the user input is processed and result of calculation shown. </p>
+							<div>Number 1
+								<input type="number" id="box1" />
+							</div>
+							</br>
+							<div>Number 2
+								<input type="number" id="box2" />
+							</div>
+							</br>
+							<div>
+								<button onclick="add()" style="float: left; margin-right: 10px;">Add</button>
+								<!--
+								<button onclick="sub()" style="width: 70;">Substract</button>
+								<button onclick="mul()" style="width: 70;">Multiply</button>
+								-->
+								<button onclick="div()" style="float: left; margin-right: 10px;">Divide</button>
+							</div>
+							<div>
+								<p id="readings"></p>
+								<h2 id="result"></h2>
+							</div>
+							<div style="clear: both;"></div>
+
+						</div>
+
+
+						<div class="entry">
+							<h2>Further examples</h2>
+
+							<p> More applications of the DOM manipulation in conjunction with D3 JavaScript library are also presented
+								in the data visualisation tabs. </p>
+
+
+						</div>
+
+					</div>
+
+				</section>
+
+
+			</article>
+
+		</main>
+
+		<footer>
+
+			<div class="socials">
+				<div class="fb">
+					<i class="icon-facebook">Facebook</i>
+				</div>
+				<div class="yt">
+					<i class="icon-youtube">You Tube</i>
+				</div>
+				<div class="tw">
+					<i class="icon-twitter">Twitter</i>
+				</div>
+				<div class="gplus">
+					<i class="icon-gplus">Google Plus</i>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+
+			<div class="info">
+				Andrzej Kocielski (G00376291@gmit.ie), 2020
+			</div>
+
+		</footer>
+
+	</body>
+
+
+
+
+	<script src="wad_project.js"></script>
+
+	</html>

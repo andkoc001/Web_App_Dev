@@ -1,0 +1,53 @@
+/*
+Title: Web Application Development - Project, GMIT 2020
+Author: Andrzej Kocielski, G00376291@gmit.ie
+*/
+
+/* --- --- --- */
+
+/* Colour scheme */
+for_reference_only
+{
+	background-color: #124; /* 1st background - website */ 
+	background-color: #334; /* 2nd background - main section*/
+	background-color: #234; /* 3rd background - fields */
+	background-color: #05a; /* menu bar background*/
+	background-color: #3ad; /* buttons background */
+	
+	color: #eee; /* 1st text colour - main text */
+	color: #bbd; /* 2nd text colour */
+	color: #fff; /* menu bar text */
+	
+	color: #1df; /* 1st headline colour, website title */
+	color: #9df; /* 2nd headline colour */
+	
+	color: #f80; /* 1st highlight colour, logo text */
+	color: #fd7; /* 2nd highlight colour */
+	color: #cfd; /* 3rd highlight colour */
+}
+
+/* --- --- --- */
+/* DOM manipulation */
+
+/* ping-pong */
+#pingpong {
+	width: 100px;
+  height: 100px;
+  border-radius:50px;
+	background: #3ad;
+  position: relative;
+  animation: mymove 1s 0;
+}
+
+#pingpong:hover {
+	background-color: #fd7;
+}
+
+@keyframes mymove1 {
+  from {left: 0px;}
+  to {left: 830px;}
+}
+@keyframes mymove2 {
+  from {left: 830px;}
+  to {left: 0px;}
+}
