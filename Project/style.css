@@ -18,7 +18,7 @@ for_reference_only
 	color: #bbd; /* 2nd text colour */
 	color: #fff; /* menu bar text */
 	
-	color: #1df; /* 1st headline colour, website title */
+	color: #1df; /* 1st headline colour, section title */
 	color: #9df; /* 2nd headline colour */
 	
 	color: #f80; /* 1st highlight colour, logo text */
@@ -29,9 +29,13 @@ for_reference_only
 
 /* --- --- --- */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body
 {
-	margin: 0;
+	margin: 0 !important;
 	padding: 0px 0px;
 	background-color: #124;
 	color: #eee;
@@ -63,8 +67,9 @@ h1.logo
 .menu
 {
 	list-style-type: none;
+	width: 100%;
 	margin: 0;
-	padding: 10px;
+	padding: 5px;
 	font-size: 18px;
 	min-height: 38px;
 	line-height: 200%;
@@ -73,8 +78,6 @@ h1.logo
 .menu > li
 {
 	display: inline-block;
-	padding-left: 20px;
-	padding-right: 20px;
 	border-right: 2px dashed #124;
 }
 
@@ -82,17 +85,23 @@ h1.logo
 .menu > li:first-child
 {
 	border-left: 2px dashed #124;
+	padding-left: 5px;
 }
 
 .menu a
 {
 	color: #fd7;
 	text-decoration: none;
+	display: block;
+	padding: 10px 15px;
+	margin-right: 5px;
 }
 
 .menu a:hover
 {
+	background-color: #04a;
 	color: #f80;
+	color: #fd7;
 }
 
 
@@ -235,7 +244,7 @@ legend
 	margin-bottom: 20px;
 	text-align: center;
 	padding: 10px;
-	border: 1px dotted gray;
+	border: 1px dotted #bbd;
 	background-color: #234;
 }
 
@@ -271,13 +280,12 @@ legend
 	margin-bottom: 20px;
 	text-align: center;
 	padding: 10px;
-	border: 1px dotted gray;
+	border: 1px dotted #bbd;
 }
 
 #dataVis2 > * > rect:hover {
 	fill: rgb(98, 214, 250);
 }
-
 
 /* --- --- --- */
 /* Login page; adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal */
@@ -343,10 +351,37 @@ button:hover {
 
 
 .reset:hover {
-	opacity: 0.8;
+	opacity: .8;
 }
 
 
+/* --- --- --- */
+/* Go to top button; adopted from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
+
+#toTop {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: #124;
+	color: #fd7;
+	color: #ff7;
+	cursor: pointer;
+	padding: 15px;
+	border: 2px solid #334;
+	border-radius: 4px;
+	opacity: .6;
+}
+
+#toTop:hover {
+	color: #fd7;
+}
+
+
+/* --- --- --- */
 /* Centre the form */
 #loginbox {
 	padding: 16px;

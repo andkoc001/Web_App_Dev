@@ -215,6 +215,8 @@
 
 		</main>
 
+		<button onclick="topFunction()" id="toTop" title="Top">Go to Top</button>
+
 		<footer>
 
 			<div class="socials">
@@ -245,28 +247,6 @@
 
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src="wad_project.js"></script>
-
-	<!-- DOM manipulation-->
-	<script>
-
-		function myFunctionIn() {
-			var x, i;
-			x = document.querySelectorAll(".highlight1");
-			for (i = 0; i < x.length; i++) {
-				x[i].style.color = "#05a";
-			}
-		}
-
-		function myFunctionOut() {
-			var x, i;
-			x = document.querySelectorAll(".highlight1");
-			for (i = 0; i < x.length; i++) {
-				x[i].style.color = "black";
-			}
-		}
-
-	</script>
-
-
+	<script src="scroll.js"></script>
 
 	</html>
