@@ -40,7 +40,7 @@ var alphabet = [
 ];
 
 // plantes distance, diameter, density, gravity, moons relative to Earth (Earth = 1)
-// data from: https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html
+// data extracted from: https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html
 var planets = [
   { planet: "Mercury", distance: "0.387", diameter: "0.383", density: ".984", gravity: "0.", moons: "0" },
   { planet: "Venus", distance: "0.723", diameter: "0.949", density: "0.951", gravity: "0.907", moons: "0" },
@@ -52,43 +52,78 @@ var planets = [
   { planet: "Neptune", distance: "30.05", diameter: "3.88", density: ".297", gravity: "1.12", moons: "14" }
 ];
 
-var planetsDia = [.383, .949, 1, .532, 11.21, 9.45, 4.01, 3.88]; // plantes diameter relative to Earth
-
 
 // create svg container (canvas)
 var svgContainer = d3.select("#dataVis1").append("svg")
   .attr("width", 400)
   .attr("height", 2000);
 
+
 // draw Sun 
-var myRectangle = svgContainer.append("rect")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("width", 400)
-  .attr("height", 40)
-  .attr("fill", "yellow");
+var sun = svgContainer.append("ellipse")
+
+  // transition state zero (initial)
+  .attr("rx", 1)
+  .attr("ry", 1)
+  .attr("cx", 200)
+  .attr("cy", -1040)
+  .attr("fill", "#fd7")
+  .attr("stroke", "#f80")
+  .attr("stroke-width", 2)
+
+  // transition state one 
+  .transition()
+  .attr("rx", 1090)
+  .attr("ry", 1090)
+  .delay(1000)
+  .duration(2000);
 
 
-// plantes diameter
+// draw plantes diameter
 var circles = svgContainer.selectAll("circle")
   .data(planets);
 
 circles.enter().append("circle")
+
+  // transition state zero (initial)
   .attr("cx", 200)
+  .attr("cy", -200)
+  .attr("r", function (d) {
+    return d.diameter * 1;
+  })
+  .attr("fill", function (d, i) { return "#" + (1 + i) + "" + (1 + i) + "f" }) // each iteration changes the red and green element of the #RGB parameter
+
+  // transition state one 
+  .transition()
+  .duration(1500) // in miliseconds
+  // move the plantes down to their locations
   .attr("cy", function (d, i) { return 150 + (i * 250); })
+  // for better impression, the size is magnified 10-folds
   .attr("r", function (d) {
     return d.diameter * 10;
   })
-  .attr("fill", function (d, i) { return "#" + (1 + i) + "" + (1 + i) + "f" }); // each iteration changes the red and green element of the #RGB parameter
+  // the transition on each iteration has incrementally different duration
+  .delay(function (d, i) {
+    return 1200 - (i * 150);
+  })
+  .duration(2000);
 
-// planet labels
+
+
+// draw labels
 var circles = svgContainer.selectAll("text")
   .data(planets);
 
 circles.enter().append("text")
-  .attr("x", 180)
-  .attr("y", 30)
-  .text("Sun");
+  .text("Sun")
+  .attr("x", 186)  // centre the word
+  .attr("y", -30) // initially out of the view
+  .style("fill", "#334")
+  .transition()
+  .delay(2650)
+  .ease(d3.easeCircleOut)
+  .attr("y", 30);
+
 
 circles.enter().append("text")
   .attr("x", 20)
