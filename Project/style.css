@@ -236,8 +236,8 @@ legend
 
 
 #dataVis1 {
-	height: 2000px;
 	width: 400px;
+	height: 2000px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20px auto;
@@ -264,9 +264,15 @@ legend
 	stroke-width: 1px;
 }	
 
+#dataVis1 > * > line {
+	stroke: #fd7;
+	stroke-width: 1px;
+}	
+
 #dataVis1 > * > text {
 	fill: #eee;
 }
+
 
 
 /* --- --- --- */
