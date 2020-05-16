@@ -54,12 +54,26 @@
         <section class="mainsection">
           <div class="core">
 
-            <header>
-              <h1> Sales </h1>
-              <p> Units sold per month </p>
-            </header>
+            <main>
+              <h1> Various data </h1>
+              <div>
+                <label> Select Colour <input type="color" id="colourPicker" value="#11aaff"></label>
+              </div>
+              <button id="draw1" onclick="drawChartSales()">Sales</button>
+              <button id="draw2" onclick="drawChartSatisfaction()">Satiscfation</button>
+              <button id="erase" onclick="eraseChart()">Erase</button>
 
-            <div id="dataVis2"></div>
+              <header>
+                <h2 id=variousDataH2> </h2>
+                <p id=variousDataP> </p>
+              </header>
+
+              <section id="chart2">
+
+                <div id="dataVis2"></div>
+
+              </section>
+            </main>
 
           </div>
         </section>

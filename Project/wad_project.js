@@ -20,28 +20,8 @@ function resetAll() {
 }
 
 
-// ////////////////////
 
-// DOM manipulation
-
-// While filling out form fields with clas .highlight1, text color changes
-
-function myFunctionIn() {
-  var x, i;
-  x = document.querySelectorAll(".highlight1");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.color = "blue";
-  }
-}
-
-function myFunctionOut() {
-  var x, i;
-  x = document.querySelectorAll(".highlight1");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.color = "black";
-  }
-}
-
+/*
 
 // ////////////////////
 
@@ -242,8 +222,37 @@ d3.csv("sales_data.csv")
 
   });
 
-// -----------------
+
+*/
+
+
+
+
+
+// ////////////////////
+
 // DOM manipulation
+
+// While filling out form fields (is in focus) with class .highlight1, text colour changes
+
+function focusIn() {
+  var x, i;
+  x = document.querySelectorAll(".highlight1");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.color = "#3ad";
+  }
+}
+
+function focusOut() {
+  var x, i;
+  x = document.querySelectorAll(".highlight1");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.color = "#124";
+  }
+}
+
+
+// -----------------
 
 // Style change
 function changeColours() {
@@ -269,7 +278,7 @@ function changeText() {
 }
 
 function addImage() {
-  document.getElementById("picture").src = "Harreck_Blue_Car.svg";
+  document.getElementById("picture").src = "img/Harreck_Blue_Car.svg";
   document.getElementById("picture").style.height = "100px";
 }
 
@@ -322,9 +331,11 @@ function div() {
   }
 }
 
+
+
 // -----------------
 // Go to top button; adopted from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-// Get the button
+// Get signal from the button
 var mybutton = document.getElementById("toTop");
 
 // When the user scrolls down 50px from the top of the document, show the button

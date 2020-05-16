@@ -157,29 +157,31 @@
 								<div class="row" style="margin-top: 0;">
 
 									<label> First Name <input class="highlight1" type="text" name="Firstname"
-											placeholder="What is your first name?" onfocusin="myFunctionIn()"
-											onfocusout="myFunctionOut()"></label>
+											placeholder="What is your first name?" onfocusin="focusIn()" onfocusout="focusOut()"></label>
 									<label> Last Name <input class="highlight1" type="text" name="Lastname"
-											placeholder="What is your last name?" onfocusin="myFunctionIn()"
-											onfocusout="myFunctionOut()"></label>
+											placeholder="What is your last name?" onfocusin="focusIn()" onfocusout="focusOut()"></label>
 
 								</div>
 
 								<div class="row">
-									<label> Address <input type="address" name="address"></label>
+									<label> Address <input class="highlight1" type="address" name="address" onfocusin="focusIn()"
+											onfocusout="focusOut()"></label>
 								</div>
 
 								<div class="row">
 									<label> E-mail Address <span style="color: #f80; font-size: 11px;">
-											(required)</span><input type="email" name="email" required></label>
+											(required)</span><input class="highlight1" type="email" name="email" onfocusin="focusIn()"
+											onfocusout="focusOut()" required></label>
 								</div>
 
 								<div class="row">
-									<label> Telephone Number <input type="tel" name="telephone"></label>
+									<label> Telephone Number <input class="highlight1" type="tel" name="telephone" onfocusin="focusIn()"
+											onfocusout="focusOut()"></label>
 								</div>
 
 								<div class="row">
-									<label> Promotional Code <input type="password" name="password"></label>
+									<label> Promotional Code <input class="highlight1" type="password" name="password"
+											onfocusin="focusIn()" onfocusout="focusOut()"></label>
 								</div>
 							</fieldset>
 
@@ -193,7 +195,7 @@
 
 							<div class="row">
 								<div style="margin-bottom: 10px;"><label for="comment"> Additional Notes </label></div>
-								<textarea name="comment" id="comment" rows="4" cols="113" maxlength="25" minlength="10"
+								<textarea name="comment" id="comment" rows="4" cols="110" maxlength="25" minlength="10"
 									placeholder="Enter additional information... " style="margin: 0 17px; padding: 10px;"></textarea>
 							</div>
 

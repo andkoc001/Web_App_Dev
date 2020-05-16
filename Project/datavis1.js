@@ -7,37 +7,7 @@ Title: Exercise 12 - d3
 
 
 // Getting data in form of an array
-
-// The new data variable.
-// source: https://stackoverflow.com/a/21668952
-var alphabet = [
-  { letter: "A", frequency: .08167 },
-  { letter: "B", frequency: .01492 },
-  { letter: "C", frequency: .02780 },
-  { letter: "D", frequency: .04253 },
-  { letter: "E", frequency: .12702 },
-  { letter: "F", frequency: .02288 },
-  { letter: "G", frequency: .02022 },
-  { letter: "H", frequency: .06094 },
-  { letter: "I", frequency: .06973 },
-  { letter: "J", frequency: .00153 },
-  { letter: "K", frequency: .00747 },
-  { letter: "L", frequency: .04025 },
-  { letter: "M", frequency: .02517 },
-  { letter: "N", frequency: .06749 },
-  { letter: "O", frequency: .07507 },
-  { letter: "P", frequency: .01929 },
-  { letter: "Q", frequency: .00098 },
-  { letter: "R", frequency: .05987 },
-  { letter: "S", frequency: .06333 },
-  { letter: "T", frequency: .09056 },
-  { letter: "U", frequency: .02758 },
-  { letter: "V", frequency: .01037 },
-  { letter: "W", frequency: .02465 },
-  { letter: "X", frequency: .00150 },
-  { letter: "Y", frequency: .01971 },
-  { letter: "Z", frequency: .00074 }
-];
+// The data storred in the 'plantes' array.
 
 // plantes distance, diameter, density, gravity, moons relative to Earth (Earth = 1)
 // data extracted from: https://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html
@@ -56,10 +26,7 @@ var planets = [
 
 // -------------------
 // draw chart function - diameter
-
-var svgContainer = d3.select("#dataVis1").append("svg")
-  .attr("width", 400)
-  .attr("height", 200);
+// -------------------
 
 
 function drawChartDia2() {
@@ -162,6 +129,7 @@ function drawChartDia2() {
 
 // -------------------
 // draw chart function - density
+// -------------------
 
 function drawChartDens2() {
   eraseChart2()
@@ -295,7 +263,7 @@ function drawChartDens2() {
 // erase active chart function
 function eraseChart2() {
 
-  // create svg container (canvas)
+  // remove svg container (canvas)
   var svgContainer = d3.selectAll("svg").remove();
 
   var svgContainer = d3.select("#dataVis1").append("svg")
@@ -308,6 +276,7 @@ function eraseChart2() {
 
 // -------------------
 // dom manipulation
+// -------------------
 
 // Content change
 function drawChartDia() {
@@ -318,7 +287,7 @@ function drawChartDia() {
 
 function drawChartDens() {
   document.getElementById("planetsH2").innerHTML = "Planets Density"
-  document.getElementById("planetsP").innerHTML = "Below are visualised relative density of the planets in the Solar System (Earth = 1). The planets are shown from top to bottom in order from neares to the Sun (Mercury) to the furthest (Neptune). The distance in this visualiation is neglected and, for simplicity, kept the same. The colour (shade of gray) represents the density - darker means densier. There is also Earth's density countur (being the densierst planet) shown in dashed blue line."
+  document.getElementById("planetsP").innerHTML = "Below are visualised relative density of the planets in the Solar System (Earth = 1). The planets are shown from top to bottom in order from neares to the Sun (Mercury) to the furthest (Neptune). The distance in this visualiation is neglected and, for simplicity, kept the same. The colour (shade of gray) represents the density - darker means densier. There is also Earth's density countur (being the densierst planet) shown in dashed yellow line for comparison."
   drawChartDens2()
 }
 

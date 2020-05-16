@@ -240,7 +240,7 @@ legend
 	height: 2000px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 20px auto;
+	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 	padding: 10px;
@@ -278,19 +278,20 @@ legend
 /* --- --- --- */
 
 #dataVis2 {
-	height: 440px;
+	height:550px;
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 20px auto;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	text-align: center;
 	padding: 10px;
 	border: 1px dotted #bbd;
+	z-index: 0;
 }
 
 #dataVis2 > * > rect:hover {
-	fill: rgb(98, 214, 250);
+	fill: #1df;
 }
 
 /* --- --- --- */
