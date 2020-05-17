@@ -31,12 +31,12 @@ function drawChartSales2() {
 
 
       // Variables for chart bar values
-      var myHeight = 350;
-      var barThickness = 40;
+      var myHeight = 450;
+      var myWidth = Number(document.getElementById("chartWidth").value);
       var dataCount = data.length;
-      var gap = 8;
-      var leftOffset = 50 + 0.5 * gap;
-      var myWidth = (barThickness + gap) * dataCount;
+      var gap = 5;
+      var barThickness = ((myWidth / dataCount) - gap);
+      var leftOffset = 50 + 0.5 * gap; // vertical axis positioning
       var chartColour = document.getElementById("colourPicker").value;
 
       // declaree a scale for X axis
@@ -45,7 +45,7 @@ function drawChartSales2() {
         .domain(data.map(function (d) {
           return d.Month;
         }))
-        .range([0, (myWidth + gap * (dataCount))]) // from 0 to (all widths of bars + gaps)
+        .range([0, myWidth + (gap * dataCount)]) // from 0 to (all widths of bars + gaps)
 
 
       // declare a scale for Y axis
@@ -53,7 +53,7 @@ function drawChartSales2() {
         // source of data - what is written on the axis
         .domain([0, d3.max(data, function (d) {
           return d.Sales;
-        }) + 0]) //.domain([0, 500])  // <-- a simple case
+        })])
         // mapped destination - where the axis is placed
         .range([myHeight, 0]) // note the reveresed order for axes values going from bottom up
         ; // <-- note semicolon here!
@@ -70,9 +70,9 @@ function drawChartSales2() {
 
       // create a svg container (still inside the curly brackets!)
       var svgContainer = d3.select("#dataVis2").append("svg")
-        .attr("height", myHeight + 75)
-        .attr("width", myWidth + 200)
-        .attr("transform", "translate(0, 10)"); // offset
+        .attr("height", myHeight + 60) // addition for axes and labels
+        .attr("width", (myWidth + 200))
+        .attr("transform", "translate(0, 20)"); // offset
 
 
       // RECTANGLE BARS
@@ -90,10 +90,10 @@ function drawChartSales2() {
         // function will run and returns i (the index value of the array)
         // d = data, i = index
         .attr("x", function (d, i) {
-          return leftOffset + (i * (myWidth / dataCount + gap)); // initial offset (left margin) + width of rectangle (40) + 2 for gap between them
+          return leftOffset + 0.5 * gap + (i * (myWidth / dataCount + gap)); // initial offset (left margin) + width of rectangle (40) + 2 for gap between them
         })
         .attr("y", myHeight)
-        .attr("width", (myWidth / dataCount))
+        .attr("width", barThickness)
 
         // transition state one 
         .transition()
@@ -121,10 +121,10 @@ function drawChartSales2() {
         // transition state zero (initial)
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
-        .attr("font-size", "18px")
+        .attr("font-size", "16px")
         .attr("fill", chartColour)
         .attr("x", function (d, i) {
-          return (leftOffset + 0.5 * myWidth / dataCount) + (i * (myWidth / dataCount + gap)); // width of rectangle (40) + 2 for gap between them
+          return (leftOffset + 0.5 * gap + 0.5 * barThickness) + (i * (myWidth / dataCount + gap)); // width of rectangle (40) + 2 for gap between them
         })
         .attr("y", 350)
 
@@ -259,7 +259,7 @@ function drawChartSatisfaction2() {
 
 
       // Variables for chart bar values
-      var myWidth = 400;
+      var myWidth = Number(document.getElementById("chartWidth").value);
       var barThickness = 12;
       var dataCount = data.length;
       var gap = 4;
@@ -344,7 +344,7 @@ function drawChartSatisfaction2() {
         .attr("font-family", "sans-serif")
         .attr("font-size", "10px")
         .attr("fill", chartColour)
-        .attr("x", 120)
+        .attr("x", 250)
         .attr("y", function (d, i) {
           return ((topOffset + barThickness + gap) + (i * (barThickness + gap)))
         })
@@ -358,7 +358,7 @@ function drawChartSatisfaction2() {
         .ease(d3.easeCubicInOut) // d3.easeCircleIn, d3.easeElasticOut, d3.easeLinear
         // positioning
         .attr("x", function (d) {
-          return xScale(d.Satisfaction + 2.6);
+          return xScale(d.Satisfaction + (1050 / myWidth)); // by trial and error + y-axis offset
         })
         .attr("y", function (d, i) {
           return ((topOffset + barThickness + gap) + (i * (barThickness + gap)))
@@ -438,8 +438,6 @@ function drawChartSatisfaction2() {
         .attr("x", "-150") // out of view
         .attr("y", "-4");
 
-
-
     });
 
 } // end of drawChart function
@@ -476,7 +474,7 @@ function drawChartSales() {
 
 function drawChartSatisfaction() {
   document.getElementById("variousDataH2").innerHTML = "Life Satisfaction"
-  document.getElementById("variousDataP").innerHTML = "Overall life satisfaction in EU countries in scale 1 to 10 (source: Eurostat)."
+  document.getElementById("variousDataP").innerHTML = "Overall life satisfaction in EU countries in scale 0 to 10 (source: Eurostat)."
   drawChartSatisfaction2()
 }
 

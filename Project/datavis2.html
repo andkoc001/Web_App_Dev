@@ -57,8 +57,16 @@
             <main>
               <h1> Various data </h1>
               <div>
+                <label> Select Width <select id="chartWidth">
+                    <option value="420"> 420 Pixels </option>
+                    <option value="530"> 530 Pixels </option>
+                    <option value="640" selected> 640 Pixels </option>
+                  </select>
+                </label>
+
                 <label> Select Colour <input type="color" id="colourPicker" value="#11aaff"></label>
               </div>
+
               <button id="draw1" onclick="drawChartSales()">Sales</button>
               <button id="draw2" onclick="drawChartSatisfaction()">Satiscfation</button>
               <button id="erase" onclick="eraseChart()">Erase</button>
