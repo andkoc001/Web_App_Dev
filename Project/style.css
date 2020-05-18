@@ -212,6 +212,7 @@ h2
 legend
 {
 	padding: 10px;
+	/* color: #fd7; */
 }
 
 .highlight1
@@ -292,6 +293,7 @@ legend
 
 #dataVis2 > * > rect:hover {
 	fill: #1df;
+	fill: #05a;
 }
 
 /* --- --- --- */
@@ -451,8 +453,8 @@ textarea, input[type=date], input[type=time], input[type=number]
 
 /* --- --- --- */ 
 
-/* Links to social media accounts */
-.socials
+/* Links to other websites */
+.links
 {
 	width:950px;
 	margin-left: auto;
@@ -460,57 +462,41 @@ textarea, input[type=date], input[type=time], input[type=number]
 	text-align: center;
 	background-color: #334;
 	margin-top: 20px;
-	padding: 15px 0;
+	padding: 0;
 	color: #bbd;
 }	
 
-.fb
+.gmit
 {
-	width: 236px;
-	height: 22px;
+	width: 50%;
+	padding: 10px 0;
 	float: left;
 }	
 
-.fb:hover
+.gmit:hover
 {
-	background-color: #4668b3;
+	background-color: #5c8bc1;
 }	
 
-.yt
+.gh
 {
-	width: 236px;
-	height: 22px;
+	width: 50%;
+	padding: 10px 0;
 	float: left;
 }	
 
-.yt:hover
+.gh:hover
 {
-	background-color: #d94348;
+	background-color: #000;
 }	
 
-.tw
+a.link
 {
-	width: 236px;
-	height: 22px;
-	float: left;
-}	
+	color: #eee;
+	text-decoration: none;	
+	display: block;	
+}
 
-.tw:hover
-{
-	background-color: #3095d3;
-}	
-
-.gplus
-{
-	width: 236px;
-	height: 22px;
-	float: left;
-}	
-
-.gplus:hover
-{
-	background-color: #d95333;
-}	
 
 /* --- --- --- */
 

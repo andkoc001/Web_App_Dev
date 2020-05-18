@@ -20,12 +20,13 @@
 	<body>
 		<!-- Layout inspired by pasja-informatyki.pl -->
 
+		<!-- HTML5 has introduced semantic tags, like 'header', 'articel', etc. which describe the purpose of the HTML section in a way meaningful for people and also for the programs (e.g. help scanning by web spiders). These tags are not used for structuring the website content. Specific application of them is left to the designer/author of the website. -->
+
 		<header>
 
 			<h1 class="logo">Web Application Development</h1>
 
 			<nav id="topnav">
-
 				<ul class="menu">
 					<li><a href="#">Start</a></li>
 					<li><a href="forms.html">HTML Forms</a></li>
@@ -33,28 +34,28 @@
 					<li><a href="datavis1.html">Data Vis (array)</a></li>
 					<li><a href="datavis2.html">Data Vis (csv)</a></li>
 				</ul>
-
 			</nav>
 
 		</header>
+
 
 		<main>
 
 			<article>
 
 				<section>
+
 					<div class="leadin">
-
 						<header>
-
 							<h1> The Project</h1>
 							<p> This is my assignment project for Web Application Development module at GMIT, 2020. The intention is
-								to demonstrate application of web technologies. Specfically, HTML 5, CSS, Java Script, D3.</p>
-
+								to demonstrate application of web technologies, specfically, HTML 5, CSS, JavaScript and D3JS library.
+							</p>
 						</header>
-
 					</div>
+
 				</section>
+
 
 				<section class="mainsection">
 					<div class="core">
@@ -69,10 +70,10 @@
 						<div class="entry">
 
 							<div class="entryimg">
-								<i class="icon-edit" style="font-size: 70px; color: #9df;"></i>
+								<i class="icon-edit" style="font-size: 70px; color: #eee;"></i>
 							</div>
 							<div class="entrytxt">
-								<h2>HTML Forms demonstation</h2>
+								<h2>HTML Forms functionality demonstation</h2>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis pretium congue. Proin ac
 									ante vitae mi venenatis imperdiet. Ut pharetra mi ut tempor condimentum. Cras metus nisl, iaculis quis
 									convallis a, maximus ac risus. Cras eu enim et turpis rutrum suscipit sit amet eget risus. </p>
@@ -83,9 +84,9 @@
 						<div class="entry">
 
 							<div class="entryimg">
-								<i class="icon-sliders" style="font-size: 70px; color: #9df;""></i>
-							</div>
-							<div class=" entrytxt">
+								<i class="icon-sliders" style="font-size: 70px; color: #bbd;""></i>
+								</div>
+								<div class=" entrytxt">
 									<h2>DOM manipulation</h2>
 									<p>Aliquam ut lobortis quam. Aliquam pulvinar tempor lorem non tincidunt. In et sem congue,
 										condimentum
@@ -131,22 +132,21 @@
 
 		</main>
 
+
 		<button onclick="topFunction()" id="toTop" title="Top">Go to Top</button>
+
 
 		<footer>
 
-			<div class="socials">
-				<div class="fb">
-					<i class="icon-facebook">Facebook</i>
+			<div class="links">
+				<div class="gmit">
+					<a href="https://www.gmit.ie/" class="link" target="_blank">
+						<img src="https://library.gmit.ie/wp-content/uploads/2017/08/GMIT-building-outline-blue-300x192.png"
+							height="14px" /> GMIT </a>
 				</div>
-				<div class="yt">
-					<i class="icon-youtube">You Tube</i>
-				</div>
-				<div class="tw">
-					<i class="icon-twitter">Twitter</i>
-				</div>
-				<div class="gplus">
-					<i class="icon-gplus">Google Plus</i>
+				<div class="gh">
+					<a href="https://github.com/andkoc001" class="link" target="_blank">
+						<i class="icon-github-circled"></i> my GitHub </a>
 				</div>
 				<div style="clear:both"></div>
 			</div>
@@ -160,7 +160,5 @@
 	</body>
 
 	<script src="wad_project.js"></script>
-	<script src="login.js"></script>
-	<script src="scroll.js"></script>
 
 	</html>

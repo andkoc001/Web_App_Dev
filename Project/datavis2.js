@@ -19,7 +19,7 @@ function drawChartSales2() {
 
   // importing csv file with data into d3
   // d3.csv("file_name.csv")
-  d3.csv("data/sales_data.csv")
+  d3.csv("data/new_cars_Ireland.csv")
     // check if it was loaded - in browser's console (localhost:8000)
     .then(function (data) {
       console.log(data);
@@ -38,12 +38,13 @@ function drawChartSales2() {
       var barThickness = ((myWidth / dataCount) - gap);
       var leftOffset = 50 + 0.5 * gap; // vertical axis positioning
       var chartColour = document.getElementById("colourPicker").value;
+      var speedFactor = Number(document.getElementById("speed").value);
 
       // declaree a scale for X axis
       // mapping categorical values from the csv file
       var xScale = d3.scaleBand()
         .domain(data.map(function (d) {
-          return d.Month;
+          return d.Year;
         }))
         .range([0, myWidth + (gap * dataCount)]) // from 0 to (all widths of bars + gaps)
 
@@ -86,7 +87,7 @@ function drawChartSales2() {
       myRectangle.enter().append("rect")
 
         // transition state zero (initial)
-        .attr("fill", "#333")
+        .attr("fill", "#334")
         // function will run and returns i (the index value of the array)
         // d = data, i = index
         .attr("x", function (d, i) {
@@ -97,7 +98,7 @@ function drawChartSales2() {
 
         // transition state one 
         .transition()
-        .duration(1000)
+        .duration(2000 * speedFactor)
         //.attr("y", 50) // this would produce bars hanging down, from baseline 50px from top
         .attr("y", function (d, i) {
           return yScale(d.Sales) // baseline 300px from top, minus (i.e. going up) the height of the rect
@@ -107,7 +108,7 @@ function drawChartSales2() {
         .attr("height", function (d) {
           return myHeight - yScale(d.Sales);
         })
-        .attr("fill", chartColour)
+        .attr("fill", chartColour);
 
 
       // LABELS 1 - sales
@@ -121,20 +122,21 @@ function drawChartSales2() {
         // transition state zero (initial)
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
-        .attr("font-size", "16px")
+        .attr("font-size", "1px")
         .attr("fill", chartColour)
         .attr("x", function (d, i) {
-          return (leftOffset + 0.5 * gap + 0.5 * barThickness) + (i * (myWidth / dataCount + gap)); // width of rectangle (40) + 2 for gap between them
+          return (leftOffset + 0.5 * gap + 0.5 * barThickness) + (i * (myWidth / dataCount + gap) - 1); // width of rectangle (40) + 2 for gap between them
         })
-        .attr("y", 350)
+        .attr("y", 450)
 
         // transition state one 
         .transition()
-        .duration(2000)
+        .duration(3000)
         .delay(function (d, i) {
-          return 650 + (i * 25);
+          return 1400 * speedFactor + (0 * 450); // at the same time
         })
-        .ease(d3.easeCubicInOut) // d3.easeCircleIn, d3.easeElasticOut, d3.easeLinear
+        .attr("font-size", "16px")
+        .ease(d3.easeCubicInOut) // other, for example, d3.easeCircleIn, d3.easeElasticOut, d3.easeLinear
         // positioning
         .attr("y", function (d) {
           return (d3.max(data, function (d) { return d.Sales; }) * (myHeight / d3.max(data, function (d) { return d.Sales; })) + 20) - d.Sales * (myHeight / d3.max(data, function (d) { return d.Sales; }))  // baseline from top + 20px into the bar, minus (i.e. going up) the height of the rect
@@ -144,10 +146,19 @@ function drawChartSales2() {
         // text content
         .text(function (d) {
           return d.Sales; // Sales from csv file + unicode degree symbol 
-        });
+        })
+
+        // transition state one 
+        .transition()
+        .duration(4000)
+        .delay(function (d, i) {
+          return 8000 * speedFactor - (0 * 500);
+        })
+        .attr("font-size", "10px")
+        .attr(d3.easeExpOut);
 
 
-      // LABELS 2 - months
+      // LABELS 2 - time periods
 
       // add label text for Bar Chart, using values from imported file - .data(data)
       //var mylabel = svgContainer.selectAll('text').data(data);
@@ -158,27 +169,27 @@ function drawChartSales2() {
         // transition state zero (initial)
         .transition()
         .duration(0)
-        .delay(2500)
+        .delay(1600)
         // positioning
         .attr("x", function (d, i) {
           return (leftOffset + 0.5 * myWidth / dataCount) + (i * (myWidth / dataCount + gap)); // (50+20) to centre text in the middle of the bar; width of rectangle (40) + 2 for gap between them
         })
-        .attr("y", 0.96 * myHeight)
+        .attr("y", 0.94 * myHeight)
         // text style
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
-        .attr("font-size", "8px")
+        .attr("font-size", "10px")
         .attr("fill", chartColour)
         // text content
         .text(function (d) {
-          return d.Month; // months names from csv file
+          return d.Year; // time period from csv file
         })
 
         // transition state two
         .transition()
-        .duration(2500)
+        .duration(4500 * speedFactor)
         .delay(function (d, i) {
-          return 200 + (i * 250);
+          return 500 * speedFactor + (i * 100);
         })
         .ease(d3.easeBounceOut)
         // Vertical positioning
@@ -189,9 +200,10 @@ function drawChartSales2() {
 
         // transition state three
         .transition()
-        .duration(4000)
-        .delay(1000)
+        .duration(2400 * speedFactor)
+        .delay(1000 * speedFactor)
         .attr("fill", chartColour)
+        .attr("font-size", "0px")
         .remove()
         .ease(d3.easeLinear);
 
@@ -266,6 +278,7 @@ function drawChartSatisfaction2() {
       var topOffset = 12 + 0.5 * gap; // by truial and error
       var myHeight = ((barThickness + gap) * dataCount);
       var chartColour = document.getElementById("colourPicker").value;
+      var speedFactor = Number(document.getElementById("speed").value);
 
       // declare a scale for X axis - life satisfation
       var xScale = d3.scaleLinear()
@@ -311,7 +324,7 @@ function drawChartSatisfaction2() {
       myRectangle.enter().append("rect")
 
         // transition state zero (initial)
-        .attr("fill", "#333")
+        .attr("fill", "#334")
         .attr("x", 100) // offset from left, by trial and error
         .attr("y", function (d, i) {
           return ((topOffset + barThickness - 1.5 * gap) + (i * (barThickness + gap)))
@@ -321,7 +334,7 @@ function drawChartSatisfaction2() {
 
         // transition state one 
         .transition()
-        .duration(3000)
+        .duration(3000 * speedFactor)
 
         // with scaling
         .attr("width", function (d) {
@@ -353,7 +366,7 @@ function drawChartSatisfaction2() {
         .transition()
         .duration(500)
         .delay(function (d, i) {
-          return 4000 + (i * 200);
+          return 4000 + (i * 200 * speedFactor);
         })
         .ease(d3.easeCubicInOut) // d3.easeCircleIn, d3.easeElasticOut, d3.easeLinear
         // positioning
@@ -382,7 +395,7 @@ function drawChartSatisfaction2() {
         // transition state zero (initial)
         // transition state two
         .transition()
-        .delay(2500)
+        .delay(2000)
         .duration(0)
 
         // text style
@@ -392,7 +405,7 @@ function drawChartSatisfaction2() {
         .attr("fill", chartColour)
         // text content
         .text(function (d) {
-          return d.Country; // months names from csv file
+          return d.Country; // country names from csv file
         })
         // positioning
         .attr("x", 90)
@@ -401,10 +414,10 @@ function drawChartSatisfaction2() {
 
         // transition state three
         .transition()
-        .duration(2000)
         .delay(function (d, i) {
           return 2000 + (-i * 150);
         })
+        .duration(4000 * speedFactor)
         .ease(d3.easeCubicInOut)
         // positioning
         .attr("y", function (d, i) {
@@ -413,7 +426,7 @@ function drawChartSatisfaction2() {
         .attr("text-anchor", "end")
 
         .transition()
-        .delay(5000)
+        .delay(4000 * speedFactor)
         .duration(1000)
         .attr("fill", "#fd7");
 
@@ -460,21 +473,20 @@ function eraseChart2() {
 
 
 
-
 // -------------------
 // DOM manipulation
 // -------------------
 
 // Content change
 function drawChartSales() {
-  document.getElementById("variousDataH2").innerHTML = "Units sale per month"
-  document.getElementById("variousDataP").innerHTML = "Here are shown imaginary data of units sold per month in the previous year."
+  document.getElementById("variousDataH2").innerHTML = "Car sale"
+  document.getElementById("variousDataP").innerHTML = "Private car sale in Ireland (source of data: CSO)."
   drawChartSales2()
 }
 
 function drawChartSatisfaction() {
   document.getElementById("variousDataH2").innerHTML = "Life Satisfaction"
-  document.getElementById("variousDataP").innerHTML = "Overall life satisfaction in EU countries in scale 0 to 10 (source: Eurostat)."
+  document.getElementById("variousDataP").innerHTML = "Overall life satisfaction in EU countries (source of data: Eurostat)."
   drawChartSatisfaction2()
 }
 

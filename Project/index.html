@@ -18,13 +18,11 @@
 	</head>
 
 
-	<script src="login.js"></script>
-
-
 	<body onload="document.getElementById('login_pop').style.display='block'">
 		<!-- As soon as the page is loaded, a JS script will be activated. -->
 
 		<header>
+			<!-- this is a semantic tag - more in start.html file -->
 
 			<h1 class="logo"> Welcome! </h1>
 
@@ -50,16 +48,19 @@
 
 								<label for="psw"><b>Password</b> <span style="font-size: 11px;"> (disabled for
 										testing)</span></label>
-								<input name="psw" type="password" placeholder="Disabled while testing" value="pass" required disabled>
+								<input name="psw" type="password" placeholder="Disabled while testing" value="GMIT" required disabled>
 
+								<!-- Below line is a JavaScript validation, disabled for simplicity -->
 								<!-- <button class="reset" type="reset" value="Reset" style="width: 100%;"> Reset </button> -->
-								<input type="submit" class="reset" value="Reset" style="width: 100%;" />
+								<input type="reset" class="reset" value="Reset" style="width: 100%;" />
+
+								<!-- Below line is a JavaScript validation, disabled for simplicity -->
 								<!-- <button class="submit" type="submit" onclick="check(this.form)" style="width: 100%;"> Login </button> -->
 								<input type="submit" class="submit" value="Login" style="width: 100%;" />
 							</div>
 
 							<div class="hint">
-								Password is provided for testing only.
+								Password is already provided for testing only.
 							</div>
 
 						</form>
@@ -82,7 +83,6 @@
 
 	</body>
 
-	<script src="https://d3js.org/d3.v5.min.js"></script>
-	<script src="scroll.js"></script>
+	<script src="wad_project.js"></script>
 
 	</html>

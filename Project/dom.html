@@ -49,9 +49,10 @@
 						<header>
 
 							<h1> DOM Manipulation</h1>
-							<p> The Document Object Model is a cross-platform and language-independent interface that treats an XML or
+							<p> "The Document Object Model is a cross-platform and language-independent interface that treats an XML
+								or
 								HTML document as a tree structure wherein each node is an object representing a part of the document.
-								The DOM represents a document with a logical tree (Wikipedia).</p>
+								The DOM represents a document with a logical tree" (Wikipedia).</p>
 
 						</header>
 
@@ -64,7 +65,9 @@
 						<header>
 
 							<h1>DOM Funtionality Demonstration</h1>
-							<p>The project consists of the following main sections.</p>
+							<p>A few of the DOM functionalities are shown here below. The main focus of the demonstration is on
+								accsess and change of the web page as well as the web page styling through the DOM. Additionally,
+								examples of interaction from the user is shown. </p>
 
 						</header>
 
@@ -72,7 +75,9 @@
 						<div class="entry" id="domStyle1">
 							<h2>Style modyfication</h2>
 
-							<p> Here are examples of changing website elements' style through DOM. </p>
+							<p> Here are two examples of changing website elements' style through DOM. The first button will cause the
+								text style to become italic and uppercase. The second one will change the colours of the background and
+								the text. The Reset button restores the original state.</p>
 							<button onclick="changeTextStyle()" style="float: left; margin-right: 10px;"> Change text style </button>
 							<button onclick="changeColours()" style="float: left; margin-right: 10px;"> Change colours </button>
 							<button onclick="resetStyle()" style="float: left; margin-right: 10px;"> Reset </button>
@@ -84,7 +89,10 @@
 						<div class="entry" id="domStyle2">
 							<h2>Content modyfication</h2>
 
-							<p> DOM manipulation allows also changing the content of the website. </p>
+							<p> DOM manipulation allows also changing the content of the website. Again, two examples are provided.
+								The first is activated by the left button, which results in changing the below sample text. The second
+								button will evoke an image. Currently an empty element is used as a placeholder to maintain the web page
+								structure. The Reset button restores the state as before changes. </p>
 							<p id="sampleText"> Sample text. </p>
 							<div style="height: 100px;"><img id="picture" src="" /></div>
 							<div style="clear: both;"></div>
@@ -115,7 +123,8 @@
 						<div class="entry">
 							<h2>User interface</h2>
 
-							<p> A simple calulator, where the user input is processed and result of calculation shown. </p>
+							<p> A simple calulator with addition and division functionalities, where the user input is processed and
+								result of calculation shown. </p>
 							<div>Number 1
 								<input type="number" id="box1" />
 							</div>
@@ -163,18 +172,15 @@
 
 		<footer>
 
-			<div class="socials">
-				<div class="fb">
-					<i class="icon-facebook">Facebook</i>
+			<div class="links">
+				<div class="gmit">
+					<a href="https://www.gmit.ie/" class="link" target="_blank">
+						<img src="https://library.gmit.ie/wp-content/uploads/2017/08/GMIT-building-outline-blue-300x192.png"
+							height="14px" /> GMIT </a>
 				</div>
-				<div class="yt">
-					<i class="icon-youtube">You Tube</i>
-				</div>
-				<div class="tw">
-					<i class="icon-twitter">Twitter</i>
-				</div>
-				<div class="gplus">
-					<i class="icon-gplus">Google Plus</i>
+				<div class="gh">
+					<a href="https://github.com/andkoc001" class="link" target="_blank">
+						<i class="icon-github-circled"></i> my GitHub </a>
 				</div>
 				<div style="clear:both"></div>
 			</div>

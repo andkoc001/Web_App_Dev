@@ -6,8 +6,29 @@ Lecturer: dr. Michael Duignan
 // ////////////////////
 
 
+// ////////////////////
+// Input validation
+
 // -----------------
-// html form validation 
+// Login to server
+
+// Adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal
+// Open the modal (login box)
+var modal = document.getElementById('login_pop');
+
+// -----------------
+// Adopted from: https://www.daniweb.com/programming/web-development/code/330933/a-simple-html-login-page-using-javascript
+// function that verifies the user's credential 
+function check(form) {
+  // the following code checkes whether the entered password is matching 
+  if (form.u_name.value == "User" && form.psw.value == "GMIT") {
+    window.open("start.html") // opens the target page while password matches
+  }
+}
+
+
+// -----------------
+// Forms validation 
 
 // Form submit button
 function submitAll() {
@@ -21,12 +42,10 @@ function resetAll() {
 
 
 
-
 // ////////////////////
-
 // DOM manipulation
 
-// While filling out form fields (is in focus) with class .highlight1, text colour changes
+// While typing inside form fields (in focus) with class .highlight1, text colour changes
 
 function focusIn() {
   var x, i;
@@ -46,7 +65,6 @@ function focusOut() {
 
 
 // -----------------
-
 // Style change
 function changeColours() {
   document.getElementById("domStyle1").style.backgroundColor = "#124"
@@ -65,6 +83,7 @@ function resetStyle() {
   document.getElementById("domStyle1").getElementsByTagName('p')[0].style.textTransform = "none";
 }
 
+// -----------------
 // Content change
 function changeText() {
   document.getElementById("sampleText").innerHTML = "This is DOM manipulation"
@@ -82,7 +101,8 @@ function resetContent() {
   document.getElementById("picture").style.height = "0";
 }
 
-// animation
+// -----------------
+// Animation
 function ping() {
   x = document.getElementById("pingpong")
   x.style.animationTimingFunction = "ease-out";
@@ -98,8 +118,8 @@ function pong() {
 }
 
 
+// -----------------
 // User interface - Calculator
-
 function read() {
   var num1 = Number(document.getElementById("box1").value);
   var num2 = Number(document.getElementById("box2").value);
@@ -127,8 +147,8 @@ function div() {
 
 
 // ////////////////////
-
-// Go to top button; adopted from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+// Go to top button
+// Adopted from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 // Get signal from the button
 var mybutton = document.getElementById("toTop");
 
