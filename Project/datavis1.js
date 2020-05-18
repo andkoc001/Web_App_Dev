@@ -24,6 +24,22 @@ var planets = [
 
 
 
+
+// -------------------
+// choice function 
+// -------------------
+
+function drawChart() {
+  var choice = Number(document.getElementById("planetProperty").value);
+
+  if (choice == 1) { drawChartDia(); }
+  else if (choice == 2) { drawChartDens(); }
+  else if (choice == 3) { drawChartGrav(); }
+}
+
+
+
+
 // -------------------
 // draw chart function - diameter
 // -------------------
@@ -127,6 +143,8 @@ function drawChartDia2() {
 } // end of drawChart function
 
 
+
+
 // -------------------
 // draw chart function - density
 // -------------------
@@ -139,26 +157,6 @@ function drawChartDens2() {
     .attr("width", 400)
     .attr("height", 2000);
 
-  /*
-    // draw Sun 
-    var sun = svgContainer.append("ellipse")
-  
-      // transition state zero (initial)
-      .attr("rx", 1)
-      .attr("ry", 1)
-      .attr("cx", 200)
-      .attr("cy", -1040)
-      .attr("fill", "#fd7")
-      .attr("stroke", "#f80")
-      .attr("stroke-width", 2)
-  
-      // transition state one 
-      .transition()
-      .attr("rx", 1090)
-      .attr("ry", 1090)
-      .delay(1000)
-      .duration(2000);
-  */
 
   // draw plantes density
   var circles = svgContainer.selectAll("circle")
@@ -260,6 +258,123 @@ function drawChartDens2() {
 } // end of drawChart function
 
 
+
+
+// -------------------
+// draw chart function - gravity
+// -------------------
+
+function drawChartGrav2() {
+  eraseChart2()
+
+  // create svg container (canvas)
+  var svgContainer = d3.select("#dataVis1").append("svg")
+    .attr("width", 400)
+    .attr("height", 2000);
+
+
+  // draw plantes gravity
+  var circles = svgContainer.selectAll("circle")
+    .data(planets);
+
+  var maxGrav = Number(d3.max(planets, function (d) { return d.gravity; }));
+
+  circles.enter().append("circle")
+
+    // transition state zero (initial)
+    .attr("cx", 200)
+    .attr("cy", function (d, i) { return 140 + (i * 250); })
+    .attr("r", 0)
+    // the fill colour depends on the gravity - the value from the array is converted to a hexadecimal value 
+    .attr("fill", "#fff")
+    .style("stroke-width", 0)
+
+    // transition state one 
+    .transition()
+    .duration(4000) // in miliseconds
+    // for better impression, the size is magnified so that the largest value has diameter 100px
+    .attr("r", function (d) {
+      return (d.gravity * (100 / maxGrav))
+    })
+
+    // the transition on each iteration has incrementally different duration
+    .attr("fill", function (d, i) {
+      return "#" +
+        (Math.floor((Number((1 - (d.gravity / maxGrav)) * 15))).toString(16)) +
+        (Math.floor((Number((1 - (d.gravity / maxGrav)) * 15))).toString(16)) +
+        (Math.floor((Number((1 - (d.gravity / maxGrav)) * 15))).toString(16))
+    });
+
+
+  // Earth's contour reference legend
+  circles.enter().append("circle")
+    .attr("cx", 200)
+    .attr("cy", function (d, i) { return 140 + (i * 250); })
+    .attr("r", 100 / maxGrav)
+    .style("fill", "none")
+    .style("stroke", "#234")
+
+    .transition()
+    .delay(1000)
+    .duration(2000)
+    .style("stroke", "#fd7")
+    .style("stroke-dasharray", ("3, 3"))
+    .style("stroke-width", 1);
+
+  circles.enter().append("line")
+    .attr("x1", 175)
+    .attr("y1", 20)
+    .attr("x2", 225)
+    .attr("y2", 20)
+
+    .transition()
+    .style("fill", "#234")
+    .style("stroke-dasharray", ("3, 3"))
+    .style("stroke-width", .1)
+
+    .delay(2000)
+    .duration(2000)
+    .style("fill", "#fd7");
+
+  var circles = svgContainer.selectAll("text")
+    .data(planets);
+
+  circles.enter().append("text")
+    .attr("x", 250)  // centre the word
+    .attr("y", 24) // initially out of the view
+    .text("\u27F5 Earth reference")
+    .style("fill", "#234")
+
+    .transition()
+    .delay(2000)
+    .duration(2000)
+    .style("fill", "#eee")
+
+
+  // draw labels
+  circles.enter().append("text")
+    .attr("x", -100)
+    .attr("y", function (d, i) { return 145 + (i * 250); })
+    .text(function (d, i) { return d.planet })
+
+    .transition()
+    .attr("x", 20)
+    .delay(500)
+    .duration(1500);
+
+
+  circles.enter().append("text")
+    .attr("x", 420)
+    .attr("y", function (d, i) { return 145 + (i * 250); })
+    .text(function (d, i) { return "g = " + d.gravity })
+    .transition()
+    .attr("x", 320)
+    .delay(500)
+    .duration(1500);
+
+} // end of drawChart function
+
+
 // erase active chart function
 function eraseChart2() {
 
@@ -289,6 +404,12 @@ function drawChartDens() {
   document.getElementById("planetsH2").innerHTML = "Planets Density"
   document.getElementById("planetsP").innerHTML = "Below are visualised relative density of the planets in the Solar System (Earth = 1). The planets are shown from top to bottom in order from neares to the Sun (Mercury) to the furthest (Neptune). The distance in this visualiation is neglected and, for simplicity, kept the same. The colour (shade of gray) represents the density - darker means densier. There is also Earth's density countur (being the densierst planet) shown in dashed yellow line for comparison."
   drawChartDens2()
+}
+
+function drawChartGrav() {
+  document.getElementById("planetsH2").innerHTML = "Planets Gravity"
+  document.getElementById("planetsP").innerHTML = "Below are visualised relative gravity of the planets in the Solar System (Earth = 1). The planets are shown from top to bottom in order from neares to the Sun (Mercury) to the furthest (Neptune). The distance in this visualiation is neglected and, for simplicity, kept the same. The colour (shade of gray) represents the gravity - darker means densier. There is also Earth's density countur shown in dashed yellow line for comparison."
+  drawChartGrav2()
 }
 
 function eraseChart() {

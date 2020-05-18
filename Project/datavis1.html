@@ -57,8 +57,19 @@
             <main>
               <h1> Planets </h1>
               <p> Properties of the planets of the Solar System. </p>
-              <button id="draw1" onclick="drawChartDia()">Diameter Chart</button>
-              <button id="draw2" onclick="drawChartDens()">Density Chart</button>
+
+              <label> Property <select id="planetProperty">
+                  <option value="1"> Diameter </option>
+                  <option value="2"> Density </option>
+                  <option value="3"> Gravity </option>
+                  <option value="4" disabled> Distance </option>
+                  <option value="5" disabled> Moons </option>
+                </select>
+              </label>
+
+              <button id="draw" onclick="drawChart()">Show Chart</button>
+              <!-- <button id="draw1" onclick="drawChartDia()">Diameter Chart</button>
+              <button id="draw2" onclick="drawChartDens()">Density Chart</button> -->
               <button id="erase" onclick="eraseChart()">Erase</button>
 
 

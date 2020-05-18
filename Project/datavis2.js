@@ -393,7 +393,6 @@ function drawChartSatisfaction2() {
       mylabel.enter().append("text")
 
         // transition state zero (initial)
-        // transition state two
         .transition()
         .delay(2000)
         .duration(0)
@@ -412,7 +411,7 @@ function drawChartSatisfaction2() {
         .attr("y", -100)
 
 
-        // transition state three
+        // transition state one
         .transition()
         .delay(function (d, i) {
           return 2000 + (-i * 150);
