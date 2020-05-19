@@ -158,6 +158,8 @@ function drawChartDens2() {
     .attr("height", 2000);
 
 
+  var waterDensity = 0.1813 // relative to Eearth's density 
+
   // draw plantes density
   var circles = svgContainer.selectAll("circle")
     .data(planets);
@@ -183,41 +185,47 @@ function drawChartDens2() {
     // the transition on each iteration has incrementally different duration
     .attr("fill", function (d, i) {
       return "#" +
-        (Math.floor((Number((1 - d.density) * 15))).toString(16)) +
-        (Math.floor((Number((1 - d.density) * 15))).toString(16)) +
-        (Math.floor((Number((1 - d.density) * 15))).toString(16))
+        "6" + // red component of #RGB colour
+        "0" + // green component of #RGB colour
+        (Math.floor((Number(d.density * 15))).toString(16))  //density is converted to a hexadecimal number - red component of #RGB colour
     });
 
 
-  // Earths reference countur
+  // Water density reference countur
   circles.enter().append("circle")
+
+    .transition()
+    .delay(2000)
+    .duration(0)
     .attr("cx", 200)
     .attr("cy", function (d, i) { return 140 + (i * 250); })
-    .attr("r", 100)
+    .attr("r", 0)
+
+    .transition()
+    .duration(4000)
+    .attr("r", 100 * waterDensity)
     .style("fill", "none")
     .style("stroke", "#234")
 
-    .transition()
-    .delay(1000)
-    .duration(2000)
     .style("stroke", "#fd7")
     .style("stroke-dasharray", ("3, 3"))
     .style("stroke-width", 1);
 
   circles.enter().append("line")
-    .attr("x1", 175)
+    .attr("x1", 181)
     .attr("y1", 20)
-    .attr("x2", 225)
+    .attr("x2", 218)
     .attr("y2", 20)
+    .style("fill", "none")
+    .style("stroke", "#234")
 
     .transition()
-    .style("fill", "#234")
+    .delay(3000)
+    .duration(4000)
+    .style("stroke", "#fd7")
     .style("stroke-dasharray", ("3, 3"))
     .style("stroke-width", .1)
 
-    .delay(2000)
-    .duration(2000)
-    .style("fill", "#fd7");
 
   var circles = svgContainer.selectAll("text")
     .data(planets);
@@ -225,11 +233,11 @@ function drawChartDens2() {
   circles.enter().append("text")
     .attr("x", 250)  // centre the word
     .attr("y", 24) // initially out of the view
-    .text("\u27F5 Earth reference")
+    .text("\u27F5 Water density")
     .style("fill", "#234")
 
     .transition()
-    .delay(2000)
+    .delay(5000)
     .duration(2000)
     .style("fill", "#eee")
 
@@ -284,12 +292,22 @@ function drawChartGrav2() {
     // transition state zero (initial)
     .attr("cx", 200)
     .attr("cy", function (d, i) { return 140 + (i * 250); })
-    .attr("r", 0)
+    .attr("r", 1000)
     // the fill colour depends on the gravity - the value from the array is converted to a hexadecimal value 
-    .attr("fill", "#fff")
+    .attr("fill", "#234")
     .style("stroke-width", 0)
 
     // transition state one 
+    .transition()
+    .duration(3500) // in miliseconds
+    .attr("fill", "#000")
+    .attr("r", function (d) {
+      return (d.gravity * (100 / maxGrav))
+    })
+    .attr(d3.easeCircleIn)
+
+
+    // transition state two 
     .transition()
     .duration(4000) // in miliseconds
     // for better impression, the size is magnified so that the largest value has diameter 100px
@@ -298,55 +316,78 @@ function drawChartGrav2() {
     })
 
     // the transition on each iteration has incrementally different duration
-    .attr("fill", function (d, i) {
+    .style("stroke-width", 0)
+    /*.attr("fill", function (d, i) {
       return "#" +
         (Math.floor((Number((1 - (d.gravity / maxGrav)) * 15))).toString(16)) +
         (Math.floor((Number((1 - (d.gravity / maxGrav)) * 15))).toString(16)) +
         (Math.floor((Number((1 - (d.gravity / maxGrav)) * 15))).toString(16))
-    });
+    })*/
+    .attr("fill", "#000");
 
 
-  // Earth's contour reference legend
+  // Earth's gravity contour reference legend
   circles.enter().append("circle")
+    .transition()
+    .delay(3000)
+    .duration(0)
     .attr("cx", 200)
     .attr("cy", function (d, i) { return 140 + (i * 250); })
+    .attr("r", 0)
+    .style("stroke", "#234")
+    .style("stroke-width", 0)
+    .style("stroke-dasharray", ("3, 3"))
+
+    .transition()
+    .duration(10)
     .attr("r", 100 / maxGrav)
+    .style("fill", "none")
+
+    .transition()
+    .duration(2000)
+    .style("fill", "none")
+    .style("stroke", "#fd7")
+    .style("stroke-width", 1);
+
+  circles.enter().append("line")
+    .attr("x1", 160)
+    .attr("y1", -5)
+    .attr("x2", 240)
+    .attr("y2", -5)
     .style("fill", "none")
     .style("stroke", "#234")
 
     .transition()
-    .delay(1000)
-    .duration(2000)
-    .style("stroke", "#fd7")
-    .style("stroke-dasharray", ("3, 3"))
-    .style("stroke-width", 1);
-
-  circles.enter().append("line")
-    .attr("x1", 175)
+    .delay(3000)
+    .attr("x1", 160)
     .attr("y1", 20)
-    .attr("x2", 225)
+    .attr("x2", 240)
     .attr("y2", 20)
 
     .transition()
-    .style("fill", "#234")
+    .duration(2000)
+    .style("stroke", "#fd7")
     .style("stroke-dasharray", ("3, 3"))
     .style("stroke-width", .1)
 
-    .delay(2000)
-    .duration(2000)
-    .style("fill", "#fd7");
+
 
   var circles = svgContainer.selectAll("text")
     .data(planets);
 
   circles.enter().append("text")
     .attr("x", 250)  // centre the word
-    .attr("y", 24) // initially out of the view
-    .text("\u27F5 Earth reference")
+    .attr("y", 0) // initially out of the view
     .style("fill", "#234")
 
     .transition()
-    .delay(2000)
+    .delay(3000)
+    .attr("x", 250)  // centre the word
+    .attr("y", 24) // initially out of the view
+    .text("\u27F5 Earth's gravity")
+
+    .transition()
+    .delay(1000)
     .duration(2000)
     .style("fill", "#eee")
 
