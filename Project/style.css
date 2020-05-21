@@ -3,10 +3,10 @@ Title: Web Application Development - Project, GMIT 2020
 Author: Andrzej Kocielski, G00376291@gmit.ie
 */
 
-/* --- --- --- */
+/* ### ### ### */
 
 /* Colour scheme */
-for_reference_only
+for_reference_only /* Non existing element, but left outsit comment because my editor shows the colour preview beside the colour code  */
 {
 	background-color: #124; /* 1st background - website */ 
 	background-color: #334; /* 2nd background - main section*/
@@ -26,9 +26,9 @@ for_reference_only
 	color: #cfd; /* 3rd highlight colour */
 }
 
+/* ### ### ### */
 
-/* --- --- --- */
-
+/* Used with 'Go to top' button - see below*/
 html {
   scroll-behavior: smooth;
 }
@@ -55,6 +55,8 @@ h1.logo
 	margin-top: 50px;
 	margin-bottom: 40px;
 }
+
+/* ### ### ### */
 
 /* Navigation Bar */
 #topnav
@@ -105,9 +107,9 @@ h1.logo
 }
 
 
-/* --- --- --- */
+/* ### ### ### */
 
-/* This container hold a brief description of the website  */
+/* This class container holds a brief description of the webpage - only one per page */
 .leadin
 {
 	width: 950px;
@@ -126,7 +128,7 @@ h1
 	text-align: center;
 }
 
-/* This section holds a short description of the main website content */
+/* This class container holds the main section of the main webpage - only one per page*/
 .mainsection
 {
 	background-color: #334;
@@ -153,28 +155,26 @@ h1
 	margin-top: 40px;
 }
 
-.entryimg
-{
-	display: inline-block;
-	margin-left: 30px;
-	width: 110px;
-}
-
-/* Limit the size of the images and add visual isolation */
-.entryimg img
-{
-	width: 90px;
-	height: 90px;
-	padding: 10px;
-}
-
+/* This class gives styl properties for the text of entries description */
 .entrytxt
 {
 	display: inline-block;
+	vertical-align: top;
 	width: 750px;
 	font-size: 15px;
 }
 
+/* A small image - or font symbol - to improve visual perception of the content*/
+.entryimg
+{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 60px;
+	margin-left: 30px;
+	width: 110px;
+}
+
+/* Second grade header, typicaly used indide the entry class */
 h2
 {
 	font-size: 20px;
@@ -183,19 +183,22 @@ h2
 }
 
 
-/* --- --- --- */ 
-/* Form */ 
+/* ### ### ### */ 
+/* Forms style */ 
 
+/* This ID is specifically applicable to the form shown on the website */
 #newCarForm 
 {
 	text-align: left;
 }
 
+/* The form is vertically splitted into rows */
 .row
 {
 	margin: 20px 0 10px;
 }
 
+/* Rows can be diveded horizontally into columns */
 .col
 {
 	display: inline-block;
@@ -203,6 +206,7 @@ h2
 	max-width: 300px;
 }
 
+/* In some cases the rows are put one beside the other, for better user experience, with the help of this class used together with the .row class */
 .float
 {
 	float: left;
@@ -215,11 +219,13 @@ legend
 	/* color: #fd7; */
 }
 
+/* This class overrights the default background colour (white) for aesthetic and visual consistancy reasons */
 .highlight1
 {
 	background-color: #bbd;
 }
 
+/* --- --- --- */
 /* Form sent confirmation message */
 #confirmation
 {
@@ -232,11 +238,47 @@ legend
 
 
 
-/* --- --- --- */
-/* Data visualisation */
+/* ### ### ### */
+/* DOM manipulation */
+
+/* ping-pong */
+/* This ID defines the look of the element (the ball). The ID is also used for JavaScript animation */
+#pingpong
+{
+	width: 92px;
+  height: 92px;
+  border-radius: 50px;
+	background: #3ad;
+	border: 4px solid #234;
+  position: relative;
+  /*animation: mymove 1s 0;*/
+}
+
+#pingpong:hover
+{
+	border: 4px solid #3ad;
+}
+
+/* these two parameters define the motion of the element */
+@keyframes mymove1
+{
+	from {left: 0px;}
+  to {left: 830px;}
+}
+@keyframes mymove2
+{
+	from {left: 830px;}
+  to {left: 0px;}
+}
 
 
-#dataVis1 {
+
+/* ### ### ### */
+/* Data visualisation 1 - data from array */
+
+/* This ID defines the area for data visualisation in 'Data visualisation from array' webpage */
+#dataVis1
+{
 	width: 400px;
 	height: 2000px;
 	margin-left: auto;
@@ -249,36 +291,42 @@ legend
 	background-color: #234;
 }
 
-#dataVis1 > * > rect {
-	fill: #f80;
-}	
-
-#dataVis1 > * > circle {
+/* Defines properties of all circles within #dataVis1 element*/
+#dataVis1 > * > circle
+{
 	opacity: 0.9;
 	stroke: #1df;
 	stroke-width: 1px;
 }	
 
-#dataVis1 > * > circle:hover {
+#dataVis1 > * > circle:hover
+{
 	opacity: 1.0;
 	stroke: #1df;
 	stroke-width: 1px;
 }	
 
-#dataVis1 > * > line {
+/* Characterises all the line elements within #dataVis1 element */
+#dataVis1 > * > line
+{
 	stroke: #fd7;
 	stroke-width: 1px;
 }	
 
-#dataVis1 > * > text {
+/* Properties of the text within #dataVis1 */
+#dataVis1 > * > text
+{
 	fill: #eee;
 }
 
 
 
-/* --- --- --- */
+/* ### ### ### */
+/* Data visualisation 2 - data from csv file */
 
-#dataVis2 {
+/* This ID defines the area for data visualisation in 'Data visualisation from csv' webpage */
+#dataVis2
+{
 	height:550px;
 	width: 800px;
 	margin-left: auto;
@@ -291,15 +339,18 @@ legend
 	z-index: 0;
 }
 
-#dataVis2 > * > rect:hover {
-	fill: #1df;
-	fill: #05a;
+/* Styling the chart bars while hovering the cursor over the bars */
+#dataVis2 > * > rect:hover
+{
+	fill: #05a; 
 }
 
-/* --- --- --- */
+
+
+/* ### ### ### */
 /* Login page; adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal */
 
-/* Set a style for all buttons */
+/* Set a style for all buttons thoroughout the webpages */
 button {
 	background-color: #05a;
 	color: #fd7;
@@ -311,10 +362,12 @@ button {
 	border-radius: 0px;
 }
 
-button:hover {
+button:hover
+{
 	opacity: 0.8;
 }
 
+/* Defines properties (mostly visual) for all buttons of this class */
 .submit
 {
 	background-color: #05a;
@@ -328,10 +381,12 @@ button:hover {
 	float: left;
 }
 
-.submit:hover {
+.submit:hover
+{
 	opacity: 0.8;
 }
 
+/* There is a special button of the bellow ID,  submitting the form 'newCarForm' */
 #itakeit
 {
 	width: 48%;
@@ -339,7 +394,9 @@ button:hover {
 	margin-left: 4px;
 }
 
-.reset {
+/* The below defines the style of buttons with the .reset class, removing already provided (but not submitted) content in the forms */
+.reset
+{
 	background-color: #a32;
 	color: #fd7;
 	font-weight: 700;
@@ -351,6 +408,7 @@ button:hover {
 	float: right;
 }
 
+/* A special instance of the reset button */
 #startover
 {
 	width: 48%;
@@ -358,16 +416,18 @@ button:hover {
 	margin-right: 4px;
 }
 
-
-.reset:hover {
+.reset:hover
+{
 	opacity: .8;
 }
 
 
-/* --- --- --- */
-/* Go to top button; adopted from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
 
-#toTop {
+/* ### ### ### */
+
+/* Go to top button; adopted from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
+#toTop
+{
 	display: none;
 	position: fixed;
 	bottom: 20px;
@@ -385,18 +445,25 @@ button:hover {
 	opacity: .6;
 }
 
-#toTop:hover {
+#toTop:hover
+{
 	color: #fd7;
 }
 
 
+
+/* ### ### ### */
+/*Login window, adopted from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal
+
 /* --- --- --- */
 /* Centre the form */
-#loginbox {
+#loginbox
+{
 	padding: 16px;
 }
 
-.hint {
+.hint
+{
 	background-color: #234;
 	font-size: 12px;
 	padding: 5px 18px;
@@ -404,7 +471,8 @@ button:hover {
 
 
 /* The Modal (login box) */
-.modal {
+.modal
+{
 	display: block;
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
@@ -417,7 +485,8 @@ button:hover {
 }
 
 /* Modal Content/Box */
-.modal-content {
+.modal-content
+{
 	background-color: #334;
 	margin: 100px auto 10px auto; /* 100px from the top, 10px from the bottom and centered */
 	border: 2px solid #777;
@@ -427,7 +496,8 @@ button:hover {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=email], input[type=password], input[type=address], input[type=tel] {
+input[type=text], input[type=email], input[type=password], input[type=address], input[type=tel]
+{
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -446,14 +516,17 @@ textarea, input[type=date], input[type=time], input[type=number]
 	animation: animatezoom 0.4s
 }
 
-@keyframes animatezoom {
+@keyframes animatezoom
+{
 	from {transform: scale(.5)} 
 	to {transform: scale(1)}
 }
 
-/* --- --- --- */ 
 
-/* Links to other websites */
+
+/* ### ### ###*/
+
+/* Links to other, external websites */
 .links
 {
 	width:950px;
@@ -466,6 +539,7 @@ textarea, input[type=date], input[type=time], input[type=number]
 	color: #bbd;
 }	
 
+/* Defines style for the boxes in the footer linking to the GMIT website */
 .gmit
 {
 	width: 50%;
@@ -478,6 +552,7 @@ textarea, input[type=date], input[type=time], input[type=number]
 	background-color: #5c8bc1;
 }	
 
+/* Defines style for the box linking to my GitHub website */
 .gh
 {
 	width: 50%;
@@ -498,7 +573,8 @@ a.link
 }
 
 
-/* --- --- --- */
+
+/* ### ### ### */
 
 /* Footer: author, copyright, thanks etc */
 .info

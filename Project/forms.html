@@ -81,7 +81,7 @@
 
 							<div class="row">
 								<label for="engine"> Engine </label>
-								<select id="engine" name="engine">
+								<select name="engine">
 									<option value="d"> Diesel </option>
 									<option value="p" selected> Petrol </option>
 									<option value="e"> Electric </option>
@@ -195,7 +195,7 @@
 
 							<div class="row">
 								<div style="margin-bottom: 10px;"><label for="comment"> Additional Notes </label></div>
-								<textarea name="comment" id="comment" rows="4" cols="110" maxlength="25" minlength="10"
+								<textarea name="comment" rows="4" cols="116" maxlength="25" minlength="10"
 									placeholder="Enter additional information... " style="margin: 0 17px; padding: 10px;"></textarea>
 							</div>
 
@@ -205,7 +205,7 @@
 								<input type="submit" class="submit" id="itakeit" value="I'll take it! Send order" />
 								<!-- <button type="reset" class="reset" onclick="resetAll()" style="float: right; width: 48%;">
 									Reset form and start over </button> -->
-								<input type="submit" class="reset" id="startover" value="Reset form and start overrrr" />
+								<input type="reset" class="reset" id="startover" value="Reset form and start overrrr" />
 								<div style="clear: both;"></div>
 							</div>
 
@@ -245,6 +245,5 @@
 
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src="wad_project.js"></script>
-	<script src="scroll.js"></script>
 
 	</html>

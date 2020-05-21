@@ -21,11 +21,11 @@
 		<!-- Layout inspired by pasja-informatyki.pl -->
 
 		<!-- HTML5 has introduced semantic tags, like 'header', 'articel', etc. which describe the purpose of the HTML section in a way meaningful for people and also for the programs (e.g. help scanning by web spiders). These tags are not used for structuring the website content. Specific application of them is left to the designer/author of the website. -->
-
 		<header>
 
 			<h1 class="logo">Web Application Development</h1>
 
+			<!-- Top navigation bar -->
 			<nav id="topnav">
 				<ul class="menu">
 					<li><a href="#">Start</a></li>
@@ -39,10 +39,12 @@
 		</header>
 
 
+		<!-- Main section of the webpage -->
 		<main>
 
 			<article>
 
+				<!-- This section is a kind of introduction to the web page subject (article) -->
 				<section>
 
 					<div class="leadin">
@@ -57,9 +59,11 @@
 				</section>
 
 
+				<!-- This section holds the core content of the web page (article) -->
 				<section class="mainsection">
 					<div class="core">
 
+						<!-- Title of the article -->
 						<header>
 
 							<h1>Content</h1>
@@ -67,16 +71,20 @@
 
 						</header>
 
+						<!-- the 'entry' classes below are the subsections of the main article -->
 						<div class="entry">
 
 							<div class="entryimg">
-								<i class="icon-edit" style="font-size: 70px; color: #eee;"></i>
+								<i class="icon-edit" style="font-size: 70px;"></i>
 							</div>
 							<div class="entrytxt">
 								<h2>HTML Forms functionality demonstation</h2>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis pretium congue. Proin ac
 									ante vitae mi venenatis imperdiet. Ut pharetra mi ut tempor condimentum. Cras metus nisl, iaculis quis
-									convallis a, maximus ac risus. Cras eu enim et turpis rutrum suscipit sit amet eget risus. </p>
+									convallis a, maximus ac risus. Cras eu enim et turpis rutrum suscipit sit amet eget risus. Nam finibus
+									non metus nec
+									rutrum. Vivamus dignissim fermentum mauris. Vivamus id gravida risus, at mollis risus. Nulla
+									ullamcorper purus sed nisi vehicula, sit amet scelerisque tortor imperdiet. </p>
 							</div>
 
 						</div>
@@ -84,14 +92,14 @@
 						<div class="entry">
 
 							<div class="entryimg">
-								<i class="icon-sliders" style="font-size: 70px; color: #bbd;""></i>
-								</div>
-								<div class=" entrytxt">
-									<h2>DOM manipulation</h2>
-									<p>Aliquam ut lobortis quam. Aliquam pulvinar tempor lorem non tincidunt. In et sem congue,
-										condimentum
-										mi ac, venenatis nisl. Cras consectetur aliquam felis vel ornare. Vivamus et elit vulputate, auctor
-										tellus in, luctus nibh. Nunc ultrices neque nibh. Pellentesque non porttitor nunc.</p>
+								<i class="icon-sliders" style="font-size: 70px;"></i>
+							</div>
+							<div class=" entrytxt">
+								<h2>DOM manipulation</h2>
+								<p>Aliquam ut lobortis quam. Aliquam pulvinar tempor lorem non tincidunt. In et sem congue,
+									condimentum
+									mi ac, venenatis nisl. Cras consectetur aliquam felis vel ornare. Vivamus et elit vulputate, auctor
+									tellus in, luctus nibh. Nunc ultrices neque nibh. Pellentesque non porttitor nunc.</p>
 							</div>
 
 						</div>
@@ -99,7 +107,7 @@
 						<div class="entry">
 
 							<div class="entryimg">
-								<i class="icon-chart-area" style="font-size: 62px; color: #9df;"></i>
+								<i class="icon-chart-area" style="font-size: 60px;"></i>
 							</div>
 							<div class="entrytxt">
 								<h2>Data visualisation - data from an array</h2>
@@ -113,13 +121,17 @@
 						<div class="entry">
 
 							<div class="entryimg">
-								<i class="icon-chart-bar-1" style="font-size: 62px; color: #9df;"></i>
+								<i class="icon-chart-bar-1" style="font-size: 60px;"></i>
 							</div>
 							<div class="entrytxt">
 								<h2>Data visualisation - data from a csv file</h2>
-								<p>Curabitur vulputate augue quis lorem sollicitudin, in maximus risus efficitur. Pellentesque sagittis
-									congue eros, vitae iaculis est. Etiam lorem magna, convallis vitae dictum eu, volutpat at lacus.
-									Quisque quis auctor nunc. </p>
+								<p> Donec neque velit, varius vel lorem quis, dapibus elementum nulla. Aliquam ultricies, justo non
+									eleifend vestibulum, est est mattis turpis, nec gravida augue dolor pellentesque ipsum. Fusce feugiat
+									viverra consectetur. Sed commodo pulvinar orci nec tincidunt. Fusce metus leo, lacinia et semper eget,
+									semper non ante. Morbi tristique faucibus dapibus. Integer ac neque molestie, efficitur odio quis,
+									faucibus est. Vestibulum non elit auctor, lacinia erat eget, vehicula eros. Donec fringilla, nisl id
+									consectetur accumsan, ex tellus iaculis elit, eu luctus nisi dui commodo nibh. Morbi a urna vehicula,
+									aliquam eros vel, rutrum nisl. </p>
 							</div>
 
 						</div>
@@ -133,11 +145,13 @@
 		</main>
 
 
+		<!-- This button appears when the page is scrolled down bt 50px (see the Java Script file) and, when clicked, brings the web page back to the top -->
 		<button onclick="topFunction()" id="toTop" title="Top">Go to Top</button>
 
 
 		<footer>
 
+			<!-- This section holds links to the external websites -->
 			<div class="links">
 				<div class="gmit">
 					<a href="https://www.gmit.ie/" class="link" target="_blank">
