@@ -13,22 +13,29 @@
 		<meta name="description" content="Web Application Development, GMIT 2020">
 		<meta name="author" content="Andrzej Kocielski, G00376291@gmit.ie">
 		<link rel="stylesheet" href="style.css" type="text/css" />
+		<!-- Import extrernal font symbols  -->
 		<link rel="stylesheet" href="fontello/css/fontello.css" type="text/css" />
+		<!-- Import extrernal font family  -->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+		<!-- JavaScript references are held at the bottom of this html file -->
+
 	</head>
 
 	<body>
 		<!-- Layout inspired by pasja-informatyki.pl -->
 
-		<!-- HTML5 has introduced semantic tags, like 'header', 'articel', etc. which describe the purpose of the HTML section in a way meaningful for people and also for the programs (e.g. help scanning by web spiders). These tags are not used for structuring the website content. Specific application of them is left to the designer/author of the website. -->
+		<!-- HTML5 has introduced semantic tags, like 'header', 'articel', etc. which describe the purpose of the HTML section in a way meaningful for people and also for the programs (e.g. help scanning by web spiders). These tags are not used for structuring the website content. Specific application of them is left to the designer/author of the website. https://www.w3schools.com/html/html5_semantic_elements.asp -->
 		<header>
 
+			<!-- Website title / logo -->
 			<h1 class="logo">Web Application Development</h1>
 
 			<!-- Top navigation bar -->
 			<nav id="topnav">
+
+				<!-- The top bar menu consists of unordered list (ul) elements (list items, li), styled with the CSS -->
 				<ul class="menu">
-					<li><a href="#">Start</a></li>
+					<li><a href="#">Start</a></li> <!-- This link is active, but does not require reloading the page -->
 					<li><a href="forms.html">HTML Forms</a></li>
 					<li><a href="dom.html">DOM Manipulation</a></li>
 					<li><a href="datavis1.html">Data Vis (array)</a></li>
@@ -44,7 +51,7 @@
 
 			<article>
 
-				<!-- This section is a kind of introduction to the web page subject (article) -->
+				<!-- This section is a kind of introduction / summary to the web page subject (article) -->
 				<section>
 
 					<div class="leadin">
@@ -61,19 +68,21 @@
 
 				<!-- This section holds the core content of the web page (article) -->
 				<section class="mainsection">
+
 					<div class="core">
 
-						<!-- Title of the article -->
 						<header>
 
+							<!-- Title of the web page (article) -->
 							<h1>Content</h1>
 							<p>The project consists of the following main sections.</p>
 
 						</header>
 
-						<!-- the 'entry' classes below are the subsections of the main article -->
+						<!-- The 'entry' classes below are the subsections of the main article. They structure the page content. Each section is divided into image on the left hand side, and text - on the right. -->
 						<div class="entry">
 
+							<!-- The entryimg class holds and image. In this case a font symbol us used instead of a image, which yields some advantages, like having the text properties, e.g. colours.  -->
 							<div class="entryimg">
 								<i class="icon-edit" style="font-size: 70px;"></i>
 							</div>
@@ -89,8 +98,11 @@
 
 						</div>
 
+
+						<!-- The 'entry' classes below are the subsections of the main article. They structure the page content. Each section is divided into image on the left hand side, and text - on the right. -->
 						<div class="entry">
 
+							<!-- The entryimg class holds and image. In this case a font symbol us used instead of a image, which yields some advantages, like having the text properties, e.g. colours.  -->
 							<div class="entryimg">
 								<i class="icon-sliders" style="font-size: 70px;"></i>
 							</div>
@@ -104,8 +116,10 @@
 
 						</div>
 
+						<!-- The 'entry' classes below are the subsections of the main article. They structure the page content. Each section is divided into image on the left hand side, and text - on the right. -->
 						<div class="entry">
 
+							<!-- The entryimg class holds and image. In this case a font symbol us used instead of a image, which yields some advantages, like having the text properties, e.g. colours.  -->
 							<div class="entryimg">
 								<i class="icon-chart-area" style="font-size: 60px;"></i>
 							</div>
@@ -118,8 +132,10 @@
 
 						</div>
 
+						<!-- The 'entry' classes below are the subsections of the main article. They structure the page content. Each section is divided into image on the left hand side, and text - on the right. -->
 						<div class="entry">
 
+							<!-- The entryimg class holds and image. In this case a font symbol us used instead of a image, which yields some advantages, like having the text properties, e.g. colours.  -->
 							<div class="entryimg">
 								<i class="icon-chart-bar-1" style="font-size: 60px;"></i>
 							</div>

@@ -435,9 +435,8 @@ button:hover
 	z-index: 99;
 	border: none;
 	outline: none;
+	color: #f80;
 	background-color: #124;
-	color: #fd7;
-	color: #ff7;
 	cursor: pointer;
 	padding: 15px;
 	border: 2px solid #334;

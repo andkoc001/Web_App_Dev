@@ -89,54 +89,8 @@ function drawChartDia2() {
 
 
   // --- --- ---
-  // draw labels
-  var circles = svgContainer.selectAll("text")
-    .data(planets); // reads the names and radius values from the array 'plantes'
-
-  // label 'Sun'
-  circles.enter().append("text")
-    // transition state zero (initial)
-    .text("Sun")
-    .attr("x", 186)  // centre the word
-    .attr("y", -30) // initially out of the view
-    .style("fill", "#334")
-
-    // transition state one 
-    .transition()
-    .delay(2650)
-    .ease(d3.easeCircleOut) // animation effect
-    .attr("y", 30);
-
-
-  // labels - planets names
-  circles.enter().append("text")
-    // transition state zero (initial)
-    .attr("x", -100)
-    .attr("y", function (d, i) { return 155 + (i * 250); })
-    .text(function (d, i) { return d.planet })
-
-    // transition state one 
-    .transition()
-    .attr("x", 20)
-    .delay(500)
-    .duration(1500);
-
-
-  // labels - radiuses
-  circles.enter().append("text")
-    // transition state zero (initial)
-    .attr("x", 420)
-    .attr("y", function (d, i) { return 155 + (i * 250); })
-    .text(function (d, i) { return "R = " + d.diameter })
-
-    // transition state one 
-    .transition()
-    .attr("x", 320)
-    .delay(500)
-    .duration(1500);
-
-  // --- --- ---
   // draw Sun
+
   var sun = svgContainer.append("ellipse") // ellipse is used here, to differentiate from circle elements, but both axes are equal, maening it is indeed a circle
 
     // transition state zero (initial)
@@ -155,6 +109,53 @@ function drawChartDia2() {
     .delay(1000)
     .duration(2000);
 
+
+  // --- --- ---  
+  // draw labels
+  var circles = svgContainer.selectAll("text")
+    .data(planets); // reads the names and radius values from the array 'plantes'
+
+
+  // label 'Sun'  
+  circles.enter().append("text")
+    // transition state zero (initial)
+    .text("Sun")
+    .attr("x", 186)  // centre the word
+    .attr("y", -30) // initially out of the view
+    .style("fill", "#334")
+
+    // transition state one 
+    .transition()
+    .delay(2650)
+    .ease(d3.easeCircleOut) // animation effect
+    .attr("y", 30);
+
+  // labels - planets names  
+  circles.enter().append("text")
+    // transition state zero (initial)
+    .attr("x", -100)
+    .attr("y", function (d, i) { return 155 + (i * 250); })
+    .text(function (d, i) { return d.planet })
+
+    // transition state one 
+    .transition()
+    .attr("x", 20)
+    .delay(500)
+    .duration(1500);
+
+
+  // labels - radiuses  
+  circles.enter().append("text")
+    // transition state zero (initial)
+    .attr("x", 420)
+    .attr("y", function (d, i) { return 155 + (i * 250); })
+    .text(function (d, i) { return "R = " + d.diameter })
+
+    // transition state one 
+    .transition()
+    .attr("x", 320)
+    .delay(500)
+    .duration(1500);
 
 } // end of drawChart function
 
@@ -175,7 +176,7 @@ function drawChartDens2() {
     .attr("width", 400)
     .attr("height", 2000);
 
-
+  // define variables 
   var sizeFactor = 100; // the chart elements will be increased in size for better visual effect
   var waterDensity = 0.1813 // relative to Eearth's density 
 
@@ -184,11 +185,12 @@ function drawChartDens2() {
   var circles = svgContainer.selectAll("circle")
     .data(planets); // get the data from the array 'plantes'
 
+  // --- --- ---
   circles.enter().append("circle")
 
     // transition state zero (initial)
-    .attr("cx", 200)
-    .attr("cy", function (d, i) { return 140 + (i * 250); })
+    .attr("cx", 200) // horizontal position
+    .attr("cy", function (d, i) { return 140 + (i * 250); }) // vertical position - iteratively updated for each planet instance
     .attr("r", 0)
     // the fill colour depends on the density - the value from the array is converted to a hexadecimal value 
     .attr("fill", "#fff")
@@ -213,6 +215,26 @@ function drawChartDens2() {
 
   // --- --- ---
   // draw labels - planets names and density values
+  var circles = svgContainer.selectAll("text")
+    .data(planets);
+
+  // water density reference - label
+  var circles = svgContainer.selectAll("text")
+    .data(planets);
+
+  circles.enter().append("text")
+    // transition state zero (initial)
+    .attr("x", 250)  // position the word horizontally
+    .attr("y", 24) // vertical position
+    .text("\u27F5 Water density")
+    .style("fill", "#234")
+
+    // transition state one 
+    .transition()
+    .delay(5000)
+    .duration(2000)
+    .style("fill", "#eee")
+
   circles.enter().append("text")
     // transition state zero (initial)
     .attr("x", -100)
@@ -237,7 +259,7 @@ function drawChartDens2() {
 
 
   // --- --- ---
-  // draw the circles representing the plantes density
+  // draw circles representing plantes' density
   circles.enter().append("circle")
 
     // transition state zero (initial)
@@ -276,23 +298,6 @@ function drawChartDens2() {
     .duration(4000)
     .style("stroke", "#fd7");
 
-  // water density reference - label
-  var circles = svgContainer.selectAll("text")
-    .data(planets);
-
-  circles.enter().append("text")
-    // transition state zero (initial)
-    .attr("x", 250)  // centre the word
-    .attr("y", 24) // initially out of the view
-    .text("\u27F5 Water density")
-    .style("fill", "#234")
-
-    // transition state one 
-    .transition()
-    .delay(5000)
-    .duration(2000)
-    .style("fill", "#eee")
-
 
 } // end of drawChart function
 
@@ -314,19 +319,19 @@ function drawChartGrav2() {
     .attr("height", 2000);
 
 
-  // --- --- ---
-  // draw plantes gravity
-  var circles = svgContainer.selectAll("circle")
-    .data(planets); // get the data from the the array
-
   // maximum value of the planets gravity
   var maxGrav = Number(d3.max(planets, function (d) { return d.gravity; })); // will be used for factoring the size of the circles representing the gravity
 
   // --- --- ---
+  // draw circles representing plantes' gravity
+  var circles = svgContainer.selectAll("circle")
+    .data(planets); // get the data from the the array
+
+  // --- --- ---
   circles.enter().append("circle")
     // transition state zero (initial)
-    .attr("cx", 200)
-    .attr("cy", function (d, i) { return 140 + (i * 250); })
+    .attr("cx", 200) // horizontal position
+    .attr("cy", function (d, i) { return 140 + (i * 250); }) // vertical position - iteratively updated for each planet instance
     .attr("r", 1000)
     // the fill colour depends on the gravity - the value from the array is converted to a hexadecimal value 
     .attr("fill", "#234")
@@ -336,6 +341,7 @@ function drawChartGrav2() {
     .transition()
     .duration(3500) // in miliseconds
     .attr("fill", "#000")
+    // for better impression, the size is scaled
     .attr("r", function (d) {
       return (d.gravity * (100 / maxGrav)) // the circle of the maximum gravity will have radius 100px, and other values are scaled accordingly
     })
@@ -361,23 +367,22 @@ function drawChartGrav2() {
   })*/
 
 
-
   // --- --- ---
   // draw labels - planets names and gravity values
   var circles = svgContainer.selectAll("text")
     .data(planets);
 
+  // Earth's gravity reference - label
   circles.enter().append("text")
     // transition state zero (initial)
-    .attr("x", 250)  // centre the word
-    .attr("y", 0) // initially out of the view
+    .attr("x", 250)  // position the word horizontally
+    .attr("y", -15) // initially out of the view
     .style("fill", "#234")
 
     // transition state one 
     .transition()
     .delay(3000)
-    .attr("x", 250)  // centre the word
-    .attr("y", 24) // initially out of the view
+    .attr("y", 24) // vertical position
     .text("\u27F5 Earth's gravity")
 
     // transition state two 
@@ -485,32 +490,46 @@ function eraseChart2() {
 
 
 // -------------------
-// dom manipulation
+// Charts display modification
 // -------------------
+
+// options selectable by user and modyfying the look or behaviour of the data visualisations through the DOM manipulation
 
 // HTML content change for each chart
 function drawChartDia() {
+  // header ID #plantersH2 modification (by overwriteing)
   document.getElementById("planetsH2").innerHTML = "Planets Diameter"
+  // paragraph ID #planetsP text modification (by overwritghting)
   document.getElementById("planetsP").innerHTML = "Below are visualised relative diameters (Earth = 1) of the planets in the Solar System. The planets are shown from top to bottom in order from neares to the Sun (Mercury) to the furthest (Neptune). The distance in this visualiation is neglected and, for simplicity, kept the same."
+  // call another function that modifies the D3JS chart properties
   drawChartDia2()
 }
 
 function drawChartDens() {
+  // header ID #plantersH2 modification (by overwriteing)
   document.getElementById("planetsH2").innerHTML = "Planets Density"
+  // paragraph ID #planetsP text modification (by overwritghting)
   document.getElementById("planetsP").innerHTML = "Below are visualised relative density of the planets in the Solar System (Earth = 1). The planets are shown from top to bottom in order from neares to the Sun (Mercury) to the furthest (Neptune). The distance in this visualiation is neglected and, for simplicity, kept the same. The colour (shade of gray) represents the density - darker means densier. There is also Earth's density countur (being the densierst planet) shown in dashed yellow line for comparison."
+  // call another function that modifies the D3JS chart properties
   drawChartDens2()
 }
 
 function drawChartGrav() {
+  // header ID #plantersH2 modification (by overwriteing)
   document.getElementById("planetsH2").innerHTML = "Planets Gravity"
+  // paragraph ID #planetsP text modification (by overwritghting)
   document.getElementById("planetsP").innerHTML = "Below are visualised relative gravity of the planets in the Solar System (Earth = 1). The planets are shown from top to bottom in order from neares to the Sun (Mercury) to the furthest (Neptune). The distance in this visualiation is neglected and, for simplicity, kept the same. The colour (shade of gray) represents the gravity - darker means densier. There is also Earth's density countur shown in dashed yellow line for comparison."
+  // call another function that modifies the D3JS chart properties
   drawChartGrav2()
 }
 
 
 // clear the chart
 function eraseChart() {
+  // header ID #plantersH2 erase (by overwriteing with empty string)
   document.getElementById("planetsH2").innerHTML = ""
+  // paragraph ID #planetsP text erase (by overwritghting with empty string)
   document.getElementById("planetsP").innerHTML = ""
+  // call another function that modifies the D3JS chart properties
   eraseChart2()
 }

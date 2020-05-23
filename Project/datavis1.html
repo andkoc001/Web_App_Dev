@@ -18,11 +18,14 @@
   </head>
 
   <body>
+    <!-- Please see start.html for some common and more more detailed comments. -->
 
     <header>
 
+      <!-- Website title / logo -->
       <h1 class=" logo">Web Application Development</h1>
 
+      <!-- Top navigation bar -->
       <nav id="topnav">
 
         <ul class="menu">
@@ -40,6 +43,8 @@
 
       <article>
         <section>
+
+          <!-- This section is a kind of introduction / summary to the web page subject (article) -->
           <div class="leadin">
 
             <header>
@@ -51,6 +56,7 @@
           </div>
         </section>
 
+        <!-- This section holds the core content of the web page (article) -->
         <section class="mainsection">
           <div class="core">
 
@@ -58,6 +64,7 @@
               <h1> Planets </h1>
               <p> Properties of the planets of the Solar System. </p>
 
+              <!-- User can select what properties to visualise; the last two are not yet available - shown as disabled here to demonstrate functionality and as a reminder -->
               <label> Property <select id="planetProperty">
                   <option value="1"> Diameter </option>
                   <option value="2"> Density </option>
@@ -67,19 +74,22 @@
                 </select>
               </label>
 
+              <!-- The following button will visualise the selected property -->
               <button id="draw" onclick="drawChart()">Visualise</button>
-              <!-- <button id="draw1" onclick="drawChartDia()">Diameter Chart</button>
-              <button id="draw2" onclick="drawChartDens()">Density Chart</button> -->
+              <!-- The following button will erase the chart -->
               <button id="erase" onclick="eraseChart()">Erase</button>
 
 
               <header>
+                <!-- Initially empty - content, depending on the option selected above, will be added via DOM -->
                 <h2 id=planetsH2> </h2>
+                <!-- Initially empty - content, depending on the option selected above, will be added via DOM -->
                 <p id=planetsP> </p>
               </header>
 
               <section id="chart1">
 
+                <!-- This is the container where the chart is produced witj D3 JS library -->
                 <div id="dataVis1"></div>
 
               </section>
@@ -92,10 +102,12 @@
 
     </main>
 
+    <!-- This button appears when the page is scrolled down bt 50px (see the Java Script file) and, when clicked, brings the web page back to the top -->
     <button onclick="topFunction()" id="toTop" title="Top">Go to Top</button>
 
     <footer>
 
+      <!-- This section holds links to the external websites -->
       <div class="links">
         <div class="gmit">
           <a href="https://www.gmit.ie/" class="link" target="_blank">
@@ -118,6 +130,7 @@
   </body>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="wad_project.js"></script>
   <script src="datavis1.js"></script>
 
   </html>

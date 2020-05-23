@@ -18,11 +18,14 @@
 	</head>
 
 	<body>
+		<!-- Please see start.html for some common and more more detailed comments. -->
 
 		<header>
 
+			<!-- Website title / logo -->
 			<h1 class="logo">Web Application Development</h1>
 
+			<!-- Top navigation bar -->
 			<nav id="topnav">
 
 				<ul class="menu">
@@ -41,29 +44,33 @@
 
 			<article>
 
+				<!-- This section is a kind of introduction / summary to the web page subject (article) -->
 				<section>
 					<div class="leadin">
 
 						<header>
 							<h1> HTML Forms Demonstration </h1>
 							<p> Here is a demo of the HTML forms functionality.</p>
-							<p> The demo is a simulation of a car specification selection in a car dealer shop. </p>
+							<p> The demo is a simulation of a car specification customisation in a car dealer shop. </p>
 						</header>
 
 					</div>
 				</section>
 
+				<!-- This section holds the core content of the web page (article) -->
 				<section class="mainsection">
 					<div class="core">
 
 						<header>
+							<!-- Title of the web page (article) -->
 							<h1> Options </h1>
-							<p> Select options for your dream car! </p>
+							<p> Select options to customise your dream car! </p>
 						</header>
 
-						<!-- Inspired by pasja-informatyki.pl -->
+						<!-- The following form demonstrates some functionalities of the HTML5 forms. Inspired by pasja-informatyki.pl -->
 						<form id="newCarForm" action="sent.html" method="get" enctype="multipart/form-data">
 
+							<!-- Selectable options have predefined values, which could be sent to the database in a PHP server - not in the scope of this project. -->
 							<div class="row">
 								<fieldset>
 									<legend> Body type </legend>
@@ -91,6 +98,7 @@
 
 
 							<div class="row" style="min-width: 750px;">
+								<!-- Minimum width to prevent columns collapse on smaller browser window. -->
 								<fieldset>
 									<legend> Extras </legend>
 
@@ -111,7 +119,7 @@
 									<div class="col">
 										<div><label><input type="checkbox" name="extras[]" value="7"> Fog Lights </label>
 										</div>
-										<div><label><input type="checkbox" name="extras[]" value="8"> Tinted Window </label>
+										<div><label><input type="checkbox" name="extras[]" value="8"> Tinted Windows </label>
 										</div>
 										<div><label><input type="checkbox" name="extras[]" value="9"> Parking Sensors </label></div>
 									</div>
@@ -189,7 +197,8 @@
 							<div class="row">
 								Preferred Delivery
 								<label> Date <input type="date" name="day"></label>
-								<label> Time <input type="time" name="hour" step="1"></label>
+								<label> Time <input type="time" name="hour" step="300"></label>
+								<!-- Time can be changed with 5 minutes intervals (300 seconds) -->
 							</div>
 
 
@@ -218,10 +227,12 @@
 
 		</main>
 
+		<!-- This button appears when the page is scrolled down bt 50px (see the Java Script file) and, when clicked, brings the web page back to the top -->
 		<button onclick="topFunction()" id="toTop" title="Top">Go to Top</button>
 
 		<footer>
 
+			<!-- This section holds links to the external websites -->
 			<div class="links">
 				<div class="gmit">
 					<a href="https://www.gmit.ie/" class="link" target="_blank">
