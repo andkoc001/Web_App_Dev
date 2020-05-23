@@ -15,15 +15,12 @@ for_reference_only /* Non existing element, but left outsit comment because my e
 	background-color: #3ad; /* buttons background */
 	
 	color: #eee; /* 1st text colour - main text */
-	color: #bbd; /* 2nd text colour */
-	color: #fff; /* menu bar text */
+	color: #bbd; /* 2nd text colour, in-text links */
 	
 	color: #1df; /* 1st headline colour, section title */
-	color: #9df; /* 2nd headline colour */
 	
 	color: #f80; /* 1st highlight colour, logo text */
 	color: #fd7; /* 2nd highlight colour */
-	color: #cfd; /* 3rd highlight colour */
 }
 
 /* ### ### ### */
@@ -102,7 +99,6 @@ h1.logo
 .menu a:hover
 {
 	background-color: #04a;
-	color: #f80;
 	color: #fd7;
 }
 
@@ -162,6 +158,17 @@ h1
 	vertical-align: top;
 	width: 750px;
 	font-size: 15px;
+}
+
+.entrytxt a
+{
+	color: #bbd;
+	text-decoration: none;
+}
+
+.entrytxt a:hover
+{
+	color: #fd7;
 }
 
 /* A small image - or font symbol - to improve visual perception of the content*/
